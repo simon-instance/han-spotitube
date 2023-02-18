@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/mssql/server:2019-latest
+
+ENV SA_PASSWORD Bam1schijf
+ENV ACCEPT_EULA Y
+ENV MSSQL_PID Express
+
+USER root
+
+RUN mkdir -p /usr/src/app/scripts
+
+COPY ./.docker/mssql/setup.sql /usr/src/app/scripts
+#COPY ./.docker/mssql/import-data.sh /usr/src/app/scripts
+COPY ./.docker/mssql/entrypoint.sh /usr/src/app/scripts
+
+RUN chmod +x /usr/src/app/scripts/*.sh
+
+EXPOSE 1433
+
+RUN ( /opt/mssql/bin/sqlservr --accept-eula & ) | grep -q "Service Broker manager has started" \
+    && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Bam1schijf" -i /usr/src/app/scripts/setup.sql \
+    && pkill sqlservr
+
+ENTRYPOINT /bin/bash /usr/src/app/scripts/entrypoint.sh
