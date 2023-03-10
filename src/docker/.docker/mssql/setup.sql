@@ -1,20 +1,64 @@
--- Schema and data for Movies database.
-use master;
-DROP DATABASE IF EXISTS Movies;
-CREATE DATABASE Spotitube;
-GO
-USE Spotitube
-GO
-CREATE LOGIN applicatie WITH PASSWORD = 'Bam1schijf';
-CREATE USER applicatie;
-ALTER ROLE db_datareader ADD MEMBER applicatie;
-ALTER ROLE db_datawriter ADD MEMBER applicatie;
-ALTER DATABASE [Spotitube] SET MULTI_USER;
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
+USE master
 GO
 
--- Add tables
+DROP DATABASE IF EXISTS Spotitube
+GO
+
+CREATE DATABASE Spotitube
+GO
+
+USE Spotitube
+GO
+
+CREATE LOGIN [applicatie] WITH PASSWORD = 'Appl1catie';
+GO
+
+-- Create the new user and assign it to the role
+CREATE USER [applicatie] FOR LOGIN [applicatie];
+GO
+
+EXEC sp_addrolemember 'db_datareader', 'applicatie'
+EXEC sp_addrolemember 'db_datawriter', 'applicatie'
+GO
+
+CREATE TABLE [user] (
+    [user] varchar(200) NOT NULL,
+    [password] varchar(1000) NOT NULL,
+
+    CONSTRAINT [pk_user] PRIMARY KEY([user])
+)
+GO
+CREATE TABLE [playlist](
+    [name] varchar(200) NOT NULL,
+    [owner] varchar(200) NOT NULL,
+
+    CONSTRAINT [pk_playlist] PRIMARY KEY([name], [owner]),
+    CONSTRAINT [fk_owner] FOREIGN KEY([owner]) REFERENCES [user]([user])
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)
+GO
+CREATE TABLE track(
+    [id] int NOT NULL IDENTITY(1,1),
+    [title] varchar(200) NOT NULL,
+    [performer] varchar(200) NOT NULL,
+    [duration] int NOT NULL,
+    [album] varchar(400),
+    [playcount] int,
+    [publicationDate] date,
+    [description] varchar(500),
+    [offlineAvailable] bit NOT NULL,
+
+    CONSTRAINT [pk_track] PRIMARY KEY([id])
+)
+GO
+CREATE TABLE [playlistTracks](
+    [name] varchar(200) NOT NULL,
+    [owner] varchar(200) NOT NULL,
+    [trackId] int NOT NULL,
+
+    CONSTRAINT [fk_playlist_ref] FOREIGN KEY([name], [owner]) REFERENCES [playlist]([name], [owner]),
+    CONSTRAINT [fk_track_ref] FOREIGN KEY(trackId) REFERENCES [track]([id])
+)
+GO
 

@@ -9,7 +9,7 @@ USER root
 RUN mkdir -p /usr/src/app/scripts
 
 COPY ./.docker/mssql/setup.sql /usr/src/app/scripts
-#COPY ./.docker/mssql/import-data.sh /usr/src/app/scripts
+COPY ./.docker/mssql/import-data.sh /usr/src/app/scripts
 COPY ./.docker/mssql/entrypoint.sh /usr/src/app/scripts
 
 RUN chmod +x /usr/src/app/scripts/*.sh
