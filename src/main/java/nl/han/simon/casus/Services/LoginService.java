@@ -1,4 +1,4 @@
-package nl.han.simon.casus.Endpoints;
+package nl.han.simon.casus.Services;
 
 public class LoginService {
     private static final String constUsername = "bamischijf";

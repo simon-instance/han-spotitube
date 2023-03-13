@@ -2,6 +2,7 @@ package nl.han.simon.casus.Endpoints;
 
 import jakarta.ws.rs.core.Response;
 import nl.han.simon.casus.DTOs.LoginDTO;
+import nl.han.simon.casus.Services.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

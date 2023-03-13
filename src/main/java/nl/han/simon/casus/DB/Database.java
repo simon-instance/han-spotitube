@@ -23,4 +23,20 @@ public class Database {
 
         return DriverManager.getConnection(url, user, password);
     }
+
+    // Method to execute a select statement and return a ResultSet
+    public static ResultSet executeSelectQuery(String selectQuery) throws SQLException {
+
+        // Get a Connection object from the Database class
+        Connection connection = Database.getConnection();
+
+        // Prepare the statement using the Connection object
+        PreparedStatement statement = connection.prepareStatement(selectQuery);
+
+        // Execute the query and get the ResultSet
+        ResultSet resultSet = statement.executeQuery();
+
+        // Return the ResultSet
+        return resultSet;
+    }
 }

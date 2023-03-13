@@ -10,6 +10,9 @@ GO
 USE Spotitube
 GO
 
+DROP USER IF EXISTS [applicatie]
+GO
+
 CREATE LOGIN [applicatie] WITH PASSWORD = 'Appl1catie';
 GO
 
@@ -17,8 +20,13 @@ GO
 CREATE USER [applicatie] FOR LOGIN [applicatie];
 GO
 
-EXEC sp_addrolemember 'db_datareader', 'applicatie'
-EXEC sp_addrolemember 'db_datawriter', 'applicatie'
+CREATE ROLE dbo_role;
+GO
+GRANT SELECT, UPDATE, DELETE, INSERT ON SCHEMA::dbo TO dbo_role;
+GO
+
+-- Assign the role to the 'applicatie' user
+EXEC sp_addrolemember 'dbo_role', 'applicatie';
 GO
 
 CREATE TABLE [user] (
@@ -26,8 +34,8 @@ CREATE TABLE [user] (
     [password] varchar(1000) NOT NULL,
 
     CONSTRAINT [pk_user] PRIMARY KEY([user])
-)
-GO
+    )
+    GO
 CREATE TABLE [playlist](
     [name] varchar(200) NOT NULL,
     [owner] varchar(200) NOT NULL,
@@ -36,9 +44,9 @@ CREATE TABLE [playlist](
     CONSTRAINT [fk_owner] FOREIGN KEY([owner]) REFERENCES [user]([user])
     ON UPDATE CASCADE
     ON DELETE NO ACTION
-)
-GO
-CREATE TABLE track(
+    )
+    GO
+CREATE TABLE [track](
     [id] int NOT NULL IDENTITY(1,1),
     [title] varchar(200) NOT NULL,
     [performer] varchar(200) NOT NULL,
@@ -50,8 +58,8 @@ CREATE TABLE track(
     [offlineAvailable] bit NOT NULL,
 
     CONSTRAINT [pk_track] PRIMARY KEY([id])
-)
-GO
+    )
+    GO
 CREATE TABLE [playlistTracks](
     [name] varchar(200) NOT NULL,
     [owner] varchar(200) NOT NULL,
@@ -59,6 +67,6 @@ CREATE TABLE [playlistTracks](
 
     CONSTRAINT [fk_playlist_ref] FOREIGN KEY([name], [owner]) REFERENCES [playlist]([name], [owner]),
     CONSTRAINT [fk_track_ref] FOREIGN KEY(trackId) REFERENCES [track]([id])
-)
-GO
+    )
+    GO
 

@@ -10,28 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TokenDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/Playlists.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/casus_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/casus_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/ConvertedPlaylistDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistsWrapperDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackWrapperDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docker/.docker/mssql/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker/.docker/mssql/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docker/.docker/mssql/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker/.docker/mssql/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/docker/.docker/mssql/setup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker/.docker/mssql/setup.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/ConnectURL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +53,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2LuV8hCRhPxrzUNB4QcHZupTNjo" />
@@ -98,19 +99,20 @@
       <recent name="nl.han.simon.casus.Endpoints" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final">
     <configuration name="JBoss/WildFly 25.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:5000/casus-1.0-SNAPSHOT" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/casus-1.0-SNAPSHOT" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <deployment>
         <artifact name="casus:war exploded">
           <settings />
         </artifact>
       </deployment>
       <server-settings>
-        <option name="SERVER" value="" />
+        <option name="SERVER" />
         <option name="BINDING_SET_NAME" value="" />
         <option name="DOMAIN" value="false" />
-        <option name="SERVER_GROUP" value="" />
+        <option name="SERVER_GROUP" value="main-server-group" />
         <option name="USERNAME" value="" />
         <option name="CREDENTIAL_ALIAS" />
       </server-settings>
@@ -164,7 +166,6 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method v="2">
-        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="casus:war exploded" />
         </option>
@@ -174,7 +175,7 @@
       <module name="casus" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.Endpoints.*" />
+          <option name="PATTERN" value="nl.han.simon.casus.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -190,7 +191,7 @@
       <module name="casus" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.Endpoints.*" />
+          <option name="PATTERN" value="nl.han.simon.casus.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -202,6 +203,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
+      <item itemvalue="JUnit.LoginResourceTest.userCorrectBothFields" />
+      <item itemvalue="JUnit.LoginResourceTest.userIncorrectBothFields" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LoginResourceTest.userCorrectBothFields" />
@@ -229,11 +235,41 @@
       <workItem from="1678363230923" duration="720000" />
       <workItem from="1678363959330" duration="6109000" />
       <workItem from="1678370080675" duration="3089000" />
+      <workItem from="1678443666851" duration="539000" />
+      <workItem from="1678444214005" duration="5229000" />
+      <workItem from="1678544031199" duration="638000" />
+      <workItem from="1678544867268" duration="2278000" />
+      <workItem from="1678547156394" duration="115000" />
+      <workItem from="1678547281143" duration="171000" />
+      <workItem from="1678547460037" duration="324000" />
+      <workItem from="1678547791095" duration="85000" />
+      <workItem from="1678548044823" duration="4657000" />
+      <workItem from="1678559042867" duration="2850000" />
+      <workItem from="1678625111952" duration="2989000" />
+      <workItem from="1678713547678" duration="2005000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JBossConfiguration">
+        <watch expression="this.this$0" custom="java.lang.reflect.Proxy,java.lang.reflect.InvocationHandler" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1678366936724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
