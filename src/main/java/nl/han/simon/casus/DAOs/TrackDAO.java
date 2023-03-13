@@ -1,27 +1,36 @@
 package nl.han.simon.casus.DAOs;
 
+import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.TrackDTO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class TrackDAO {
-    public static List<TrackDTO> getPlaylistTracks(int playlistId) {
-        var tracks = IntStream.range(1, 3).mapToObj(k -> {
-            var track = new TrackDTO();
 
-            track.setAlbum("album-" + k);
-            track.setDescription("description-" + k);
-            track.setTitle("title-" + k);
-            track.setDuration(100);
-            track.setId(k);
-            track.setPerformer("performer-" + k);
-            track.setPlaycount(0);
-            track.setOfflineAvailable(false);
+    public static List<TrackDTO> getPlaylistTracks(int playlistId) throws SQLException {
+        List<TrackDTO> tracks = new ArrayList<>();
 
-            return track;
-        }).collect(Collectors.toList());
+        var trackResult = Database.executeSelectQuery("SELECT * from track\n" +
+                "WHERE id IN\n" +
+                "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
+
+        while (trackResult.next()) {
+            TrackDTO track = new TrackDTO();
+            track.setId(trackResult.getInt("id"));
+            track.setTitle(trackResult.getString("title"));
+            track.setPerformer(trackResult.getString("performer"));
+            track.setDuration(trackResult.getInt("duration"));
+            track.setAlbum(trackResult.getString("album"));
+            track.setPlaycount(trackResult.getInt("playcount"));
+            track.setPublicationDate(trackResult.getDate("publicationDate"));
+            track.setDescription(trackResult.getString("description"));
+            track.setOfflineAvailable(trackResult.getBoolean("offlineAvailable"));
+            tracks.add(track);
+        }
 
         return tracks;
     }

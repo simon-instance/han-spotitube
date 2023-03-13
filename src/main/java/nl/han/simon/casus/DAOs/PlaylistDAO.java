@@ -3,29 +3,32 @@ package nl.han.simon.casus.DAOs;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.PlaylistDTO;
 
-import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class PlaylistDAO {
     public static List<PlaylistDTO> getPlaylists() throws SQLException {
         var result = Database.executeSelectQuery("SELECT * FROM playlist");
 
+        List<PlaylistDTO> playlists = new ArrayList<>();
+        while (result.next()) {
+            PlaylistDTO playlist = new PlaylistDTO();
+            playlist.setId(result.getInt("id"));
+            playlist.setName(result.getString("name"));
+            playlist.setOwner(result.getString("owner"));
 
+            playlist.setTracks(TrackDAO.getPlaylistTracks(playlist.getId()));
 
-        var dtos = IntStream.range(1, 10).mapToObj(i -> {
-            var playlist = new PlaylistDTO();
-            playlist.setId(i);
-            playlist.setOwner("user-" + i);
+            playlists.add(playlist);
+        }
 
-            var tracks = TrackDAO.getPlaylistTracks(i);
-            playlist.setTracks(tracks);
+        return playlists;
+    }
 
-            return playlist;
-        }).collect(Collectors.toList());
-
-        return dtos;
+    public static void updatePlaylistName(int id, String name) throws SQLException {
+        Database.executeUpdateQuery("UPDATE [playlist] \n" +
+                "SET [name] = ?\n" +
+                "WHERE [id] = ?", name, id);
     }
 }

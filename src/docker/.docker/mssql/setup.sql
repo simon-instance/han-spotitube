@@ -13,8 +13,8 @@ GO
 DROP USER IF EXISTS [applicatie]
 GO
 
-CREATE LOGIN [applicatie] WITH PASSWORD = 'Appl1catie';
-GO
+-- CREATE LOGIN [applicatie] WITH PASSWORD = 'Appl1catie';
+-- GO
 
 -- Create the new user and assign it to the role
 CREATE USER [applicatie] FOR LOGIN [applicatie];
@@ -34,18 +34,19 @@ CREATE TABLE [user] (
     [password] varchar(1000) NOT NULL,
 
     CONSTRAINT [pk_user] PRIMARY KEY([user])
-    )
-    GO
+)
+GO
 CREATE TABLE [playlist](
+    [id] int NOT NULL IDENTITY(1,1),
     [name] varchar(200) NOT NULL,
     [owner] varchar(200) NOT NULL,
 
-    CONSTRAINT [pk_playlist] PRIMARY KEY([name], [owner]),
+    CONSTRAINT [pk_playlist] PRIMARY KEY([id]),
     CONSTRAINT [fk_owner] FOREIGN KEY([owner]) REFERENCES [user]([user])
     ON UPDATE CASCADE
     ON DELETE NO ACTION
-    )
-    GO
+)
+GO
 CREATE TABLE [track](
     [id] int NOT NULL IDENTITY(1,1),
     [title] varchar(200) NOT NULL,
@@ -58,15 +59,13 @@ CREATE TABLE [track](
     [offlineAvailable] bit NOT NULL,
 
     CONSTRAINT [pk_track] PRIMARY KEY([id])
-    )
-    GO
+)
+GO
 CREATE TABLE [playlistTracks](
-    [name] varchar(200) NOT NULL,
-    [owner] varchar(200) NOT NULL,
+    [playlistId] int NOT NULL,
     [trackId] int NOT NULL,
 
-    CONSTRAINT [fk_playlist_ref] FOREIGN KEY([name], [owner]) REFERENCES [playlist]([name], [owner]),
-    CONSTRAINT [fk_track_ref] FOREIGN KEY(trackId) REFERENCES [track]([id])
-    )
-    GO
-
+    CONSTRAINT [fk_playlist_ref] FOREIGN KEY([playlistId]) REFERENCES [playlist]([id]),
+    CONSTRAINT [fk_track_ref] FOREIGN KEY([trackId]) REFERENCES [track]([id])
+)
+GO
