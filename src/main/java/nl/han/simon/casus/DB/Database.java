@@ -26,7 +26,6 @@ public class Database {
 
     // Method to execute a select statement and return a ResultSet
     public static ResultSet executeSelectQuery(String selectQuery, Object... bindParams) throws SQLException {
-
         // Get a Connection object from the Database class
         Connection connection = Database.getConnection();
 
@@ -46,8 +45,6 @@ public class Database {
     }
 
     public static void executeUpdateQuery(String selectQuery, Object... bindParams) throws SQLException {
-
-
         // Get a Connection object from the Database class
         Connection connection = Database.getConnection();
 
@@ -61,5 +58,22 @@ public class Database {
 
         // Execute the query and get the ResultSet
         statement.executeUpdate();
+    }
+
+
+    public static void execute(String selectQuery, Object... bindParams) throws SQLException {
+        // Get a Connection object from the Database class
+        Connection connection = Database.getConnection();
+
+        // Prepare the statement using the Connection object
+        PreparedStatement statement = connection.prepareStatement(selectQuery);
+
+        // Assign bind parameters to statement
+        for (int i = 0; i < bindParams.length; i++) {
+            statement.setObject(i + 1, bindParams[i]);
+        }
+
+        // Execute the query and get the ResultSet
+        statement.execute();
     }
 }

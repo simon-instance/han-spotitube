@@ -1,6 +1,7 @@
 package nl.han.simon.casus.DTOs;
 
 public class ConvertedPlaylistDTO extends Playlist {
+    private boolean owner;
     public boolean isOwner() {
         return owner;
     }
@@ -9,5 +10,4 @@ public class ConvertedPlaylistDTO extends Playlist {
         this.owner = owner;
     }
 
-    private boolean owner;
 }

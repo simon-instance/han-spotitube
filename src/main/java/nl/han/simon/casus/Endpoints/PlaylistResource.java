@@ -3,16 +3,11 @@ package nl.han.simon.casus.Endpoints;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
-import nl.han.simon.casus.DTOs.Playlist;
+
+import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
 import nl.han.simon.casus.DTOs.PlaylistDTO;
-import nl.han.simon.casus.DTOs.PlaylistsWrapperDTO;
-import nl.han.simon.casus.DTOs.TrackWrapperDTO;
 import nl.han.simon.casus.Services.PlaylistService;
 import nl.han.simon.casus.Services.TrackService;
-
-import javax.print.attribute.standard.Media;
-import java.net.URI;
-import java.sql.SQLException;
 
 @Path("/playlists")
 public class PlaylistResource {
@@ -26,12 +21,7 @@ public class PlaylistResource {
             return Response.status(403).build();
         }
 
-        try {
-            PlaylistsWrapperDTO allPlaylists = playlistService.getAllPlaylists();
-            return Response.ok().entity(allPlaylists).build();
-        } catch(SQLException e) {
-            return Response.status(500).build();
-        }
+        return playlistService.getAllPlaylists();
     }
 
     @GET
@@ -42,29 +32,28 @@ public class PlaylistResource {
             return Response.status(403).build();
         }
 
-        try {
-            var playlistTracks = trackService.getTracksByPlaylist(playlistId);
-            return Response.ok().entity(playlistTracks).build();
-        } catch(SQLException e) {
-            return Response.status(500).build();
-        }
+        return trackService.getTracksByPlaylist(playlistId);
     }
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response editPlaylistName(@PathParam("id") int playlistId, @QueryParam("token") String tokenString, PlaylistDTO newPlaylist) {
-//        return Response.ok().entity("{ \"bami\": true }").build();
-        try {
-            playlistService.updatePlaylistName(playlistId, newPlaylist.getName());
+    public Response updatePlaylistName(@PathParam("id") int playlistId, @QueryParam("token") String tokenString, PlaylistDTO newPlaylist) {
+        return playlistService.updatePlaylistName(playlistId, newPlaylist.getName(), tokenString);
+    }
 
-            URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch(SQLException e) {
-            System.out.println(e);
-            return Response.status(500).build();
-        }
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addPlaylist(@QueryParam("token") String tokenString, ConvertedPlaylistDTO newPlaylist) {
+        return playlistService.addPlaylist(newPlaylist, tokenString);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public Response deletePlaylist(@PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
+        return playlistService.deletePlaylist(playlistId, tokenString);
     }
 
     @Inject

@@ -1,17 +1,23 @@
 package nl.han.simon.casus.Services;
 
+import jakarta.ws.rs.core.Response;
 import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
+import nl.han.simon.casus.Exceptions.SQLExceptionMapper;
 
 import java.sql.SQLException;
 
 public class TrackService {
-    public TrackWrapperDTO getTracksByPlaylist(int playlistId) throws SQLException {
-        var tracks = TrackDAO.getPlaylistTracks(playlistId);
+    public Response getTracksByPlaylist(int playlistId) {
+        try {
+            var tracks = TrackDAO.getPlaylistTracks(playlistId);
 
-        var wrappedTracks = new TrackWrapperDTO();
-        wrappedTracks.setTracks(tracks);
+            var wrappedTracks = new TrackWrapperDTO();
+            wrappedTracks.setTracks(tracks);
 
-        return wrappedTracks;
+            return Response.ok().entity(wrappedTracks).build();
+        } catch(SQLException e) {
+            return new SQLExceptionMapper().toResponse(e);
+        }
     }
 }

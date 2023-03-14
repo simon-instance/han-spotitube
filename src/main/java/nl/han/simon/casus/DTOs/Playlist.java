@@ -3,6 +3,10 @@ package nl.han.simon.casus.DTOs;
 import java.util.List;
 
 public abstract class Playlist {
+    private int id;
+    private List<TrackDTO> tracks;
+    private String name;
+
     public int getId() {
         return id;
     }
@@ -27,9 +31,4 @@ public abstract class Playlist {
     public void setName(String name) {
         this.name = name;
     }
-
-    private int id;
-    private List<TrackDTO> tracks;
-    private String name;
-
 }
