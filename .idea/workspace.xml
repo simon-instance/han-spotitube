@@ -10,17 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/SQLExceptionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docker/.docker/mssql/setup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker/.docker/mssql/setup.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/ConvertedPlaylistDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/ConvertedPlaylistDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +226,7 @@
       <workItem from="1678559042867" duration="2850000" />
       <workItem from="1678625111952" duration="2989000" />
       <workItem from="1678713547678" duration="11311000" />
-      <workItem from="1678782182654" duration="9216000" />
+      <workItem from="1678782182654" duration="9904000" />
     </task>
     <servers />
   </component>
