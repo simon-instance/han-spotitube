@@ -3,12 +3,12 @@ package nl.han.simon.casus.DTOs;
 import java.util.Date;
 
 public class TrackDTO {
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        TrackDTO.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -75,7 +75,7 @@ public class TrackDTO {
         this.offlineAvailable = offlineAvailable;
     }
 
-    private static int id = 0;
+    private int id;
     private String title;
     private String performer;
     private int duration;

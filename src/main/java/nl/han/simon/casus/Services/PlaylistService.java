@@ -1,10 +1,11 @@
 package nl.han.simon.casus.Services;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriBuilder;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
 import nl.han.simon.casus.DTOs.*;
-import nl.han.simon.casus.Exceptions.SQLExceptionMapper;
+import nl.han.simon.casus.Exceptions.DBException;
 
 import java.net.URI;
 import java.sql.SQLException;
@@ -12,9 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlaylistService {
+    public PlaylistDAO playlistDAO;
+
     public Response getAllPlaylists() {
         try {
-            var playlists = PlaylistDAO.getPlaylists();
+            var playlists = playlistDAO.getPlaylists();
 
             // Database fetched user based off of tokenString
             var user = "user-1";
@@ -27,40 +30,40 @@ public class PlaylistService {
 
             return Response.ok().entity(playlistsWrapper).build();
         } catch(SQLException e) {
-            return new SQLExceptionMapper().toResponse(e);
+            throw new DBException(e.getMessage());
         }
     }
 
     public Response updatePlaylistName(int id, String name, String tokenString) {
         try {
-            PlaylistDAO.updatePlaylistName(id, name);
+            playlistDAO.updatePlaylistName(id, name);
 
             URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
             return Response.status(303).location(uri).build();
         } catch (SQLException e) {
-            return new SQLExceptionMapper().toResponse(e);
+            throw new DBException(e.getMessage());
         }
     }
 
     public Response addPlaylist(ConvertedPlaylistDTO newPlaylist, String tokenString) {
         try {
-            PlaylistDAO.addPlaylist(newPlaylist.getName(), tokenString);
+            playlistDAO.addPlaylist(newPlaylist.getName(), tokenString);
 
             URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
             return Response.status(303).location(uri).build();
         } catch(SQLException e) {
-            return new SQLExceptionMapper().toResponse(e);
+            throw new DBException(e.getMessage());
         }
     }
 
     public Response deletePlaylist(int playlistId, String tokenString) {
         try {
-            PlaylistDAO.deletePlaylist(playlistId);
+            playlistDAO.deletePlaylist(playlistId);
 
             URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
             return Response.status(303).location(uri).build();
         } catch(SQLException e) {
-            return new SQLExceptionMapper().toResponse(e);
+            throw new DBException(e.getMessage());
         }
     }
 
@@ -94,5 +97,10 @@ public class PlaylistService {
         convertedPlaylistDTO.setName(playlistDTO.getName());
 
         return convertedPlaylistDTO;
+    }
+
+    @Inject
+    public void setPlaylistDAO(PlaylistDAO playlistDAO) {
+        this.playlistDAO = playlistDAO;
     }
 }

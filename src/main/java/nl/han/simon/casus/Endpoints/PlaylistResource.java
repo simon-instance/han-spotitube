@@ -39,7 +39,7 @@ public class PlaylistResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updatePlaylistName(@PathParam("id") int playlistId, @QueryParam("token") String tokenString, PlaylistDTO newPlaylist) {
+    public Response updatePlaylistName(ConvertedPlaylistDTO newPlaylist, @PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
         return playlistService.updatePlaylistName(playlistId, newPlaylist.getName(), tokenString);
     }
 

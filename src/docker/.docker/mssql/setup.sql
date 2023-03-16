@@ -36,19 +36,19 @@ CREATE TABLE [user] (
 
     CONSTRAINT [pk_user] PRIMARY KEY([token]),
     CONSTRAINT [un_user] UNIQUE([user])
-    )
-    GO
+)
+GO
 CREATE TABLE [playlist](
     [id] int NOT NULL IDENTITY(1,1),
     [name] varchar(200) NOT NULL,
-    [owner] varchar(14) NOT NULL,
+    [owner] varchar(200) NOT NULL,
 
     CONSTRAINT [pk_playlist] PRIMARY KEY([id]),
-    CONSTRAINT [fk_owner] FOREIGN KEY([owner]) REFERENCES [user]([token])
+    CONSTRAINT [fk_owner] FOREIGN KEY([owner]) REFERENCES [user]([user])
     ON UPDATE CASCADE
     ON DELETE NO ACTION
-    )
-    GO
+)
+GO
 CREATE TABLE [track](
     [id] int NOT NULL IDENTITY(1,1),
     [title] varchar(200) NOT NULL,
@@ -61,13 +61,15 @@ CREATE TABLE [track](
     [offlineAvailable] bit NOT NULL,
 
     CONSTRAINT [pk_track] PRIMARY KEY([id])
-    )
-    GO
+)
+GO
 CREATE TABLE [playlistTracks](
     [playlistId] int NOT NULL,
     [trackId] int NOT NULL,
 
-     CONSTRAINT [fk_playlist_ref] FOREIGN KEY([playlistId]) REFERENCES [playlist]([id]),
+    CONSTRAINT [fk_playlist_ref] FOREIGN KEY([playlistId]) REFERENCES [playlist]([id])
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     CONSTRAINT [fk_track_ref] FOREIGN KEY([trackId]) REFERENCES [track]([id])
-    )
-    GO
+)
+GO
