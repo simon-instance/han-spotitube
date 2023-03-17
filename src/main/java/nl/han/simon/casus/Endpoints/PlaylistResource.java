@@ -64,6 +64,12 @@ public class PlaylistResource {
         return playlistService.deletePlaylist(playlistId, tokenString);
     }
 
+    @DELETE
+    @Path("/{id}/tracks/{trackid}")
+    public Response deletePlaylist(@PathParam("id") int playlistId, @PathParam("trackid") int trackId, @QueryParam("token") String tokenString) {
+        return trackService.deleteTrackFromPlaylist(trackId, playlistId, tokenString);
+    }
+
     @Inject
     public void setPlaylistService(PlaylistService playlistService) {
         this.playlistService = playlistService;

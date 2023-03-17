@@ -37,6 +37,10 @@ public class TrackDAO {
         return trackWrapperDTO;
     }
 
+    public void deleteTrackFromPlaylist(int trackId, int playlistId) throws SQLException {
+        Database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
+    }
+
     private void retrieveTrackData(ResultSet trackResult, List<TrackDTO> tracks) throws SQLException {
         while (trackResult.next()) {
             TrackDTO track = new TrackDTO();

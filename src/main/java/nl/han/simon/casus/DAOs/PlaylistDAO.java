@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
 import nl.han.simon.casus.DTOs.PlaylistDTO;
+import nl.han.simon.casus.Exceptions.InsertException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,8 +41,15 @@ public class PlaylistDAO {
         Database.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
     }
 
-    public static void addPlaylist(String playlistName, String tokenString) throws SQLException {
-        Database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, tokenString);
+    public void addPlaylist(String playlistName, String tokenString) throws SQLException {
+        var user = Database.executeSelectQuery("SELECT * FROM [user] WHERE token = ?", tokenString);
+
+        if(user.next()) {
+            Database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, user.getString("user"));
+            return;
+        }
+
+        throw new InsertException("Failed to create playlist " + playlistName);
     }
 
     public static void deletePlaylist(int playlistId) throws SQLException {
