@@ -3,6 +3,7 @@ package nl.han.simon.casus.DAOs;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
+import nl.han.simon.casus.Exceptions.InsertException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,7 +46,7 @@ public class TrackDAO {
             track.setDuration(trackResult.getInt("duration"));
             track.setAlbum(trackResult.getString("album"));
             track.setPlaycount(trackResult.getInt("playcount"));
-            track.setPublicationDate(trackResult.getDate("publicationDate"));
+            track.setPublicationDate(trackResult.getString("publicationDate"));
             track.setDescription(trackResult.getString("description"));
             track.setOfflineAvailable(trackResult.getBoolean("offlineAvailable"));
             tracks.add(track);

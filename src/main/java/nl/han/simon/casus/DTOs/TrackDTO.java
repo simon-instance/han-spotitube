@@ -1,5 +1,6 @@
 package nl.han.simon.casus.DTOs;
 
+
 import java.util.Date;
 
 public class TrackDTO {
@@ -51,11 +52,11 @@ public class TrackDTO {
         this.playcount = playcount;
     }
 
-    public Date getPublicationDate() {
+    public String getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublicationDate(Date publicationDate) {
+    public void setPublicationDate(String publicationDate) {
         this.publicationDate = publicationDate;
     }
 
@@ -81,7 +82,7 @@ public class TrackDTO {
     private int duration;
     private String album;
     private int playcount;
-    private Date publicationDate;
+    private String publicationDate;
     private String description;
     private boolean offlineAvailable;
 }

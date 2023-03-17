@@ -12,15 +12,15 @@ import java.util.List;
 public class PlaylistDAO {
     private TrackDAO trackDAO;
 
-    public List<PlaylistDTO> getPlaylists() throws SQLException {
-        var result = Database.executeSelectQuery("SELECT * FROM playlist");
+    public List<PlaylistDTO> getPlaylists(String user) throws SQLException {
+        var result = Database.executeSelectQuery("SELECT * FROM playlist WHERE owner = ?", user);
 
         List<PlaylistDTO> playlists = new ArrayList<>();
         while (result.next()) {
             PlaylistDTO playlist = new PlaylistDTO();
             playlist.setId(result.getInt("id"));
             playlist.setName(result.getString("name"));
-            playlist.setOwner("1234-1234-1234");
+            playlist.setOwner(user);
 
             playlist.setTracks(trackDAO.getPlaylistTracks(playlist.getId()));
 
@@ -34,6 +34,10 @@ public class PlaylistDAO {
         Database.executeUpdateQuery("UPDATE [playlist] \n" +
                 "SET [name] = ?\n" +
                 "WHERE [id] = ?", name, id);
+    }
+
+    public void addTrackToPlaylist(int playlistId, int trackId) throws SQLException {
+        Database.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
     }
 
     public static void addPlaylist(String playlistName, String tokenString) throws SQLException {

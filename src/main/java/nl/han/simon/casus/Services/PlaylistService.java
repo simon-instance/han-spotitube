@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriBuilder;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
+import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.*;
 import nl.han.simon.casus.Exceptions.DBException;
 
@@ -14,13 +15,14 @@ import java.util.stream.Collectors;
 
 public class PlaylistService {
     public PlaylistDAO playlistDAO;
+    public TrackDAO trackDAO;
 
     public Response getAllPlaylists() {
         try {
-            var playlists = playlistDAO.getPlaylists();
+            String user = "john_doe";
+            var playlists = playlistDAO.getPlaylists(user);
 
             // Database fetched user based off of tokenString
-            var user = "user-1";
             var convertedPlaylists = convertPlaylistOwners(playlists, user);
 
             var playlistsWrapper = new PlaylistsWrapperDTO();
@@ -67,6 +69,17 @@ public class PlaylistService {
         }
     }
 
+    public Response addTrackToPlaylist(int playlistId, String tokenString, TrackDTO trackDTO) {
+        try {
+            playlistDAO.addTrackToPlaylist(playlistId, trackDTO.getId());
+
+            URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
+            return Response.status(303).location(uri).build();
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
+    }
+
     private int getTotalLength(List<? extends Playlist> playlists) {
         return playlists
                 .stream()
@@ -102,5 +115,10 @@ public class PlaylistService {
     @Inject
     public void setPlaylistDAO(PlaylistDAO playlistDAO) {
         this.playlistDAO = playlistDAO;
+    }
+
+    @Inject
+    public void setTrackDAO(TrackDAO trackDAO) {
+        this.trackDAO = trackDAO;
     }
 }
