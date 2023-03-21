@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,6 +311,6 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1678366936724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1679414769016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/han_spotitube$All_in_casus.ic" NAME="All in casus Coverage Results" MODIFIED="1679414779281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$All_in_casus.ic" NAME="All in casus Coverage Results" MODIFIED="1679415200252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
