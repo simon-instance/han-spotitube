@@ -20,7 +20,8 @@ public class TrackResource {
             return Response.status(403).build();
         }
 
-        return trackService.getTracksExcludePlaylist(playlistId);
+        var tracks = trackService.getTracksExcludePlaylist(playlistId);
+        return Response.ok().entity(tracks).build();
     }
 
     @Inject

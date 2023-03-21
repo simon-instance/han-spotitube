@@ -5,10 +5,11 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 
 import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
-import nl.han.simon.casus.DTOs.PlaylistDTO;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.Services.PlaylistService;
 import nl.han.simon.casus.Services.TrackService;
+
+import java.net.URI;
 
 @Path("/playlists")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,7 +33,8 @@ public class PlaylistResource {
             return Response.status(403).build();
         }
 
-        return trackService.getTracksByPlaylist(playlistId);
+        var wrappedTracks = trackService.getTracksByPlaylist(playlistId);
+        return Response.ok().entity(wrappedTracks).build();
     }
 
     @POST
@@ -43,32 +45,47 @@ public class PlaylistResource {
             return Response.status(403).build();
         }
 
-        return playlistService.addTrackToPlaylist(playlistId, tokenString, track);
+        playlistService.addTrackToPlaylist(playlistId, track);
+
+        URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
+        return Response.status(303).location(uri).build();
     }
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePlaylistName(ConvertedPlaylistDTO newPlaylist, @PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        return playlistService.updatePlaylistName(playlistId, newPlaylist.getName(), tokenString);
+        playlistService.updatePlaylistName(playlistId, newPlaylist.getName());
+
+        URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
+        return Response.status(303).location(uri).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addPlaylist(@QueryParam("token") String tokenString, ConvertedPlaylistDTO newPlaylist) {
-        return playlistService.addPlaylist(newPlaylist, tokenString);
+        playlistService.addPlaylist(newPlaylist, tokenString);
+
+        URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
+        return Response.status(303).location(uri).build();
     }
 
     @DELETE
     @Path("/{id}")
     public Response deletePlaylist(@PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        return playlistService.deletePlaylist(playlistId, tokenString);
+        playlistService.deletePlaylist(playlistId);
+
+        URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
+        return Response.status(303).location(uri).build();
     }
 
     @DELETE
     @Path("/{id}/tracks/{trackid}")
     public Response deletePlaylist(@PathParam("id") int playlistId, @PathParam("trackid") int trackId, @QueryParam("token") String tokenString) {
-        return trackService.deleteTrackFromPlaylist(trackId, playlistId, tokenString);
+        trackService.deleteTrackFromPlaylist(trackId, playlistId, tokenString);
+
+        URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
+        return Response.status(303).location(uri).build();
     }
 
     @Inject

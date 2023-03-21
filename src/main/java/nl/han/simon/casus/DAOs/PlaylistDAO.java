@@ -36,29 +36,42 @@ public class PlaylistDAO {
         }
     }
 
-    public void updatePlaylistName(int id, String name) throws SQLException {
-        Database.executeUpdateQuery("UPDATE [playlist] \n" +
-                "SET [name] = ?\n" +
-                "WHERE [id] = ?", name, id);
-    }
-
-    public void addTrackToPlaylist(int playlistId, int trackId) throws SQLException {
-        Database.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
-    }
-
-    public void addPlaylist(String playlistName, String tokenString) throws SQLException {
-        var user = Database.executeSelectQuery("SELECT * FROM [user] WHERE token = ?", tokenString);
-
-        if(user.next()) {
-            Database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, user.getString("user"));
-            return;
+    public void updatePlaylistName(int id, String name) {
+        try {
+            Database.executeUpdateQuery("UPDATE [playlist] \n" +
+                    "SET [name] = ?\n" +
+                    "WHERE [id] = ?", name, id);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
         }
-
-        throw new InsertException("Failed to create playlist " + playlistName);
     }
 
-    public static void deletePlaylist(int playlistId) throws SQLException {
-        Database.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
+    public void addTrackToPlaylist(int playlistId, int trackId) {
+        try {
+            Database.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
+    }
+
+    public void addPlaylist(String playlistName, String tokenString) {
+        try {
+            var user = Database.executeSelectQuery("SELECT * FROM [user] WHERE token = ?", tokenString);
+
+            if(user.next()) {
+                Database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, user.getString("user"));
+            }
+        } catch (SQLException e) {
+            throw new InsertException("Failed to create playlist " + playlistName);
+        }
+    }
+
+    public static void deletePlaylist(int playlistId) {
+        try {
+            Database.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
     @Inject

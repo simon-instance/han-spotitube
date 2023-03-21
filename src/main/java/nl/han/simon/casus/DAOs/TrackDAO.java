@@ -3,6 +3,7 @@ package nl.han.simon.casus.DAOs;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
+import nl.han.simon.casus.Exceptions.DBException;
 import nl.han.simon.casus.Exceptions.InsertException;
 
 import java.sql.ResultSet;
@@ -12,33 +13,45 @@ import java.util.List;
 
 public class TrackDAO {
 
-    public List<TrackDTO> getPlaylistTracks(int playlistId) throws SQLException {
-        List<TrackDTO> tracks = new ArrayList<>();
+    public List<TrackDTO> getPlaylistTracks(int playlistId) {
+        try {
+            List<TrackDTO> tracks = new ArrayList<>();
 
-        var trackResult = Database.executeSelectQuery("SELECT * from track\n" +
-                "WHERE id IN\n" +
-                "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
+            var trackResult = Database.executeSelectQuery("SELECT * from track\n" +
+                    "WHERE id IN\n" +
+                    "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
 
-        retrieveTrackData(trackResult, tracks);
+            retrieveTrackData(trackResult, tracks);
 
-        return tracks;
+            return tracks;
+        } catch (SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
-    public TrackWrapperDTO getAllTracksExcept(int playlistId) throws SQLException {
-        var trackWrapperDTO = new TrackWrapperDTO();
+    public TrackWrapperDTO getAllTracksExcept(int playlistId) {
+        try {
+            var trackWrapperDTO = new TrackWrapperDTO();
 
-        var trackResult = Database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", playlistId);
+            var trackResult = Database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", playlistId);
 
-        List<TrackDTO> tracks = new ArrayList<>();
-        retrieveTrackData(trackResult, tracks);
+            List<TrackDTO> tracks = new ArrayList<>();
+            retrieveTrackData(trackResult, tracks);
 
-        trackWrapperDTO.setTracks(tracks);
+            trackWrapperDTO.setTracks(tracks);
 
-        return trackWrapperDTO;
+            return trackWrapperDTO;
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
-    public void deleteTrackFromPlaylist(int trackId, int playlistId) throws SQLException {
-        Database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
+    public void deleteTrackFromPlaylist(int trackId, int playlistId) {
+        try {
+            Database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
     private void retrieveTrackData(ResultSet trackResult, List<TrackDTO> tracks) throws SQLException {

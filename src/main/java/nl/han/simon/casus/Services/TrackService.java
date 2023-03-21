@@ -5,7 +5,6 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriBuilder;
 import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
-import nl.han.simon.casus.Exceptions.DBException;
 
 import java.net.URI;
 import java.sql.SQLException;
@@ -13,38 +12,23 @@ import java.sql.SQLException;
 public class TrackService {
     private TrackDAO trackDAO;
 
-    public Response getTracksByPlaylist(int playlistId) {
-        try {
-            var tracks = trackDAO.getPlaylistTracks(playlistId);
+    public TrackWrapperDTO getTracksByPlaylist(int playlistId) {
+        var tracks = trackDAO.getPlaylistTracks(playlistId);
 
-            var wrappedTracks = new TrackWrapperDTO();
-            wrappedTracks.setTracks(tracks);
+        var wrappedTracks = new TrackWrapperDTO();
+        wrappedTracks.setTracks(tracks);
 
-            return Response.ok().entity(wrappedTracks).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+        return wrappedTracks;
     }
 
-    public Response getTracksExcludePlaylist(int playlistId) {
-        try {
-            var tracks = trackDAO.getAllTracksExcept(playlistId);
+    public TrackWrapperDTO getTracksExcludePlaylist(int playlistId) {
+        var tracks = trackDAO.getAllTracksExcept(playlistId);
 
-            return Response.ok().entity(tracks).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+        return tracks;
     }
 
-    public Response deleteTrackFromPlaylist(int trackId, int playlistId, String tokenString) {
-        try {
-            trackDAO.deleteTrackFromPlaylist(trackId, playlistId);
-
-            URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+    public void deleteTrackFromPlaylist(int trackId, int playlistId, String tokenString) {
+        trackDAO.deleteTrackFromPlaylist(trackId, playlistId);
     }
 
     @Inject

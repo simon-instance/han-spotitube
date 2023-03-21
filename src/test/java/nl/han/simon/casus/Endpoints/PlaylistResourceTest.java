@@ -112,19 +112,6 @@ class PlaylistResourceTest {
     }
 
     @Test
-    public void updatePlaylistNameWithTokenString() {
-        //arrange
-        var tokenString = "1234-1234-1234";
-
-        //act
-        var playlistDTO = new ConvertedPlaylistDTO();
-        playlistDTO.setName("testPlaylist");
-
-//        //assert
-//        assertEquals();
-    }
-
-    @Test
     public void addTrackToPlaylistWithoutTokenString() {
         //arrange
         String tokenString = null;
@@ -144,6 +131,23 @@ class PlaylistResourceTest {
         //assert
         assertEquals(res.getStatus(), 403);
     }
+
+//    @Test
+//    public void updatePlaylistNameWithTokenString() {
+//        //arrange
+//        var tokenString = "1234-1234-1234";
+//
+//        //act
+//        var playlistDTO = new ConvertedPlaylistDTO();
+//        playlistDTO.setName("testPlaylist");
+//
+//        Response res = sut.updatePlaylistName(newPlaylist, playlistDTO.getId())
+//
+//        //assert
+//        assertEquals();
+//    }
+
+
 
     @Test
     public void retrievePlaylistTracksWithoutTokenString() {

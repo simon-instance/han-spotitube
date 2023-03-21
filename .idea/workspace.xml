@@ -12,8 +12,11 @@
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/TrackResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/TrackResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,9 +86,9 @@
       <recent name="nl.han.simon.casus.Endpoints" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in casus">
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final">
     <configuration name="JBoss/WildFly 25.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:5000/casus-1.0-SNAPSHOT" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/casus-1.0-SNAPSHOT" />
       <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <deployment>
         <artifact name="casus:war exploded">
@@ -155,6 +158,14 @@
         </option>
       </method>
     </configuration>
+    <configuration name="All in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="casus" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginResourceTest.userCorrectBothFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
       <extension name="coverage">
@@ -213,6 +224,7 @@
     </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
+      <item itemvalue="JUnit.All in casus" />
       <item itemvalue="JUnit.java in casus" />
       <item itemvalue="JUnit.PlaylistResourceTest.retrievePlaylistsWithTokenString" />
       <item itemvalue="JUnit.LoginResourceTest.userCorrectBothFields" />
@@ -220,6 +232,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in casus" />
         <item itemvalue="JUnit.java in casus" />
         <item itemvalue="JUnit.PlaylistResourceTest.retrievePlaylistsWithTokenString" />
         <item itemvalue="JUnit.LoginResourceTest.userCorrectBothFields" />
@@ -293,13 +306,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/casus$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1679390464154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/casus$PlaylistResourceTest.ic" NAME="PlaylistResourceTest Coverage Results" MODIFIED="1679390280458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1679390450528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/casus$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1679390464154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1678366936724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$All_in_casus.ic" NAME="All in casus Coverage Results" MODIFIED="1679409469992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

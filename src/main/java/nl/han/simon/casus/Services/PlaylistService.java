@@ -32,48 +32,20 @@ public class PlaylistService {
         return playlistsWrapper;
     }
 
-    public Response updatePlaylistName(int id, String name, String tokenString) {
-        try {
-            playlistDAO.updatePlaylistName(id, name);
-
-            URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch (SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+    public void updatePlaylistName(int id, String name) {
+        playlistDAO.updatePlaylistName(id, name);
     }
 
-    public Response addPlaylist(ConvertedPlaylistDTO newPlaylist, String tokenString) {
-        try {
-            playlistDAO.addPlaylist(newPlaylist.getName(), tokenString);
-
-            URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+    public void addPlaylist(ConvertedPlaylistDTO newPlaylist, String tokenString) {
+        playlistDAO.addPlaylist(newPlaylist.getName(), tokenString);
     }
 
-    public Response deletePlaylist(int playlistId, String tokenString) {
-        try {
-            playlistDAO.deletePlaylist(playlistId);
-
-            URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+    public void deletePlaylist(int playlistId) {
+        playlistDAO.deletePlaylist(playlistId);
     }
 
-    public Response addTrackToPlaylist(int playlistId, String tokenString, TrackDTO trackDTO) {
-        try {
-            playlistDAO.addTrackToPlaylist(playlistId, trackDTO.getId());
-
-            URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
-            return Response.status(303).location(uri).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+    public void addTrackToPlaylist(int playlistId, TrackDTO trackDTO) {
+        playlistDAO.addTrackToPlaylist(playlistId, trackDTO.getId());
     }
 
     private int getTotalLength(List<? extends Playlist> playlists) {
