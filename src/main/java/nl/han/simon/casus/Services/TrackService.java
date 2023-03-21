@@ -1,13 +1,8 @@
 package nl.han.simon.casus.Services;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.UriBuilder;
 import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
-
-import java.net.URI;
-import java.sql.SQLException;
 
 public class TrackService {
     private TrackDAO trackDAO;

@@ -1,15 +1,10 @@
 package nl.han.simon.casus.Services;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.UriBuilder;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
 import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.*;
-import nl.han.simon.casus.Exceptions.DBException;
 
-import java.net.URI;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 

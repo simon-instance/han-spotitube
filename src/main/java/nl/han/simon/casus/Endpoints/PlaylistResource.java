@@ -55,6 +55,9 @@ public class PlaylistResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePlaylistName(ConvertedPlaylistDTO newPlaylist, @PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
+        if(!"1234-1234-1234".equals(tokenString)) {
+            return Response.status(403).build();
+        }
         playlistService.updatePlaylistName(playlistId, newPlaylist.getName());
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -63,7 +66,10 @@ public class PlaylistResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addPlaylist(@QueryParam("token") String tokenString, ConvertedPlaylistDTO newPlaylist) {
+    public Response addPlaylist(ConvertedPlaylistDTO newPlaylist, @QueryParam("token") String tokenString) {
+        if(!"1234-1234-1234".equals(tokenString)) {
+            return Response.status(403).build();
+        }
         playlistService.addPlaylist(newPlaylist, tokenString);
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -73,6 +79,9 @@ public class PlaylistResource {
     @DELETE
     @Path("/{id}")
     public Response deletePlaylist(@PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
+        if(!"1234-1234-1234".equals(tokenString)) {
+            return Response.status(403).build();
+        }
         playlistService.deletePlaylist(playlistId);
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -81,7 +90,10 @@ public class PlaylistResource {
 
     @DELETE
     @Path("/{id}/tracks/{trackid}")
-    public Response deletePlaylist(@PathParam("id") int playlistId, @PathParam("trackid") int trackId, @QueryParam("token") String tokenString) {
+    public Response deleteTrackFromPlaylist(@PathParam("id") int playlistId, @PathParam("trackid") int trackId, @QueryParam("token") String tokenString) {
+        if(!"1234-1234-1234".equals(tokenString)) {
+            return Response.status(403).build();
+        }
         trackService.deleteTrackFromPlaylist(trackId, playlistId, tokenString);
 
         URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
