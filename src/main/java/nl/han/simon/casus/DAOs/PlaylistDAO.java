@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
 import nl.han.simon.casus.DTOs.PlaylistDTO;
+import nl.han.simon.casus.Exceptions.DBException;
 import nl.han.simon.casus.Exceptions.InsertException;
 
 import java.sql.SQLException;
@@ -13,22 +14,26 @@ import java.util.List;
 public class PlaylistDAO {
     private TrackDAO trackDAO;
 
-    public List<PlaylistDTO> getPlaylists(String user) throws SQLException {
-        var result = Database.executeSelectQuery("SELECT * FROM playlist WHERE owner = ?", user);
+    public List<PlaylistDTO> getPlaylists(String user) {
+        try {
+            var result = Database.executeSelectQuery("SELECT * FROM playlist WHERE owner = ?", user);
 
-        List<PlaylistDTO> playlists = new ArrayList<>();
-        while (result.next()) {
-            PlaylistDTO playlist = new PlaylistDTO();
-            playlist.setId(result.getInt("id"));
-            playlist.setName(result.getString("name"));
-            playlist.setOwner(user);
+            List<PlaylistDTO> playlists = new ArrayList<>();
+            while (result.next()) {
+                PlaylistDTO playlist = new PlaylistDTO();
+                playlist.setId(result.getInt("id"));
+                playlist.setName(result.getString("name"));
+                playlist.setOwner(user);
 
-            playlist.setTracks(trackDAO.getPlaylistTracks(playlist.getId()));
+                playlist.setTracks(trackDAO.getPlaylistTracks(playlist.getId()));
 
-            playlists.add(playlist);
+                playlists.add(playlist);
+            }
+
+            return playlists;
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
         }
-
-        return playlists;
     }
 
     public void updatePlaylistName(int id, String name) throws SQLException {

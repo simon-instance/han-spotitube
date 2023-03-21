@@ -21,7 +21,8 @@ public class PlaylistResource {
             return Response.status(403).build();
         }
 
-        return playlistService.getAllPlaylists();
+        var playlistsWrapper = playlistService.getAllPlaylists();
+        return Response.ok().entity(playlistsWrapper).build();
     }
 
     @GET

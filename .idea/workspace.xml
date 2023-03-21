@@ -11,6 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +266,8 @@
       <workItem from="1679389224132" duration="170000" />
       <workItem from="1679389402733" duration="245000" />
       <workItem from="1679389658331" duration="731000" />
-      <workItem from="1679390399024" duration="1757000" />
+      <workItem from="1679390399024" duration="2281000" />
+      <workItem from="1679393027313" duration="747000" />
     </task>
     <servers />
   </component>
@@ -296,6 +300,6 @@
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1679390450528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679391915983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

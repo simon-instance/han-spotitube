@@ -17,23 +17,19 @@ public class PlaylistService {
     public PlaylistDAO playlistDAO;
     public TrackDAO trackDAO;
 
-    public Response getAllPlaylists() {
-        try {
-            String user = "john_doe";
-            var playlists = playlistDAO.getPlaylists(user);
+    public PlaylistsWrapperDTO getAllPlaylists() {
+        String user = "john_doe";
+        var playlists = playlistDAO.getPlaylists(user);
 
-            // Database fetched user based off of tokenString
-            var convertedPlaylists = convertPlaylistOwners(playlists, user);
+        // Database fetched user based off of tokenString
+        var convertedPlaylists = convertPlaylistOwners(playlists, user);
 
-            var playlistsWrapper = new PlaylistsWrapperDTO();
+        var playlistsWrapper = new PlaylistsWrapperDTO();
 
-            playlistsWrapper.setPlaylists(convertedPlaylists);
-            playlistsWrapper.setLength(getTotalLength(convertedPlaylists));
+        playlistsWrapper.setPlaylists(convertedPlaylists);
+        playlistsWrapper.setLength(getTotalLength(convertedPlaylists));
 
-            return Response.ok().entity(playlistsWrapper).build();
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+        return playlistsWrapper;
     }
 
     public Response updatePlaylistName(int id, String name, String tokenString) {
