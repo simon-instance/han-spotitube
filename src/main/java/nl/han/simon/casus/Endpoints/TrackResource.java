@@ -16,10 +16,6 @@ public class TrackResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllTracks(@QueryParam("forPlaylist") int playlistId, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
-
         var tracks = trackService.getTracksExcludePlaylist(playlistId);
         return Response.ok().entity(tracks).build();
     }

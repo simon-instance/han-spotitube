@@ -4,7 +4,6 @@ import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
 import nl.han.simon.casus.Exceptions.DBException;
-import nl.han.simon.casus.Exceptions.InsertException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +16,7 @@ public class TrackDAO {
         try {
             List<TrackDTO> tracks = new ArrayList<>();
 
-            var trackResult = Database.executeSelectQuery("SELECT * from track\n" +
+            var trackResult = Database.executeSelectQuery("SELECT * FROM track\n" +
                     "WHERE id IN\n" +
                     "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
 

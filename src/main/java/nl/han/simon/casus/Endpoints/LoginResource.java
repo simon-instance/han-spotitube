@@ -21,12 +21,9 @@ public class LoginResource {
             return Response.status(401).build();
         }
 
-        var responseDTO = new TokenDTO();
+        var resUser = loginService.getUserFrom(user.getUser());
 
-        responseDTO.setUser(user.getUser());
-        responseDTO.setToken("1234-1234-1234");
-
-        return Response.ok().entity(responseDTO).build();
+        return Response.ok().entity(resUser).build();
     }
 
     @Inject

@@ -18,10 +18,6 @@ public class PlaylistResource {
     private TrackService trackService;
     @GET
     public Response playlists(@QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
-
         var playlistsWrapper = playlistService.getAllPlaylists();
         return Response.ok().entity(playlistsWrapper).build();
     }
@@ -29,10 +25,6 @@ public class PlaylistResource {
     @GET
     @Path("/{id}/tracks")
     public Response playlistTracks(@PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
-
         var wrappedTracks = trackService.getTracksByPlaylist(playlistId);
         return Response.ok().entity(wrappedTracks).build();
     }
@@ -41,10 +33,6 @@ public class PlaylistResource {
     @Path("/{id}/tracks")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addTrackToPlaylist(@PathParam("id") int playlistId, @QueryParam("token") String tokenString, TrackDTO track) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
-
         playlistService.addTrackToPlaylist(playlistId, track);
 
         URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
@@ -55,9 +43,6 @@ public class PlaylistResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePlaylistName(ConvertedPlaylistDTO newPlaylist, @PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
         playlistService.updatePlaylistName(playlistId, newPlaylist.getName());
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -67,9 +52,6 @@ public class PlaylistResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addPlaylist(ConvertedPlaylistDTO newPlaylist, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
         playlistService.addPlaylist(newPlaylist, tokenString);
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -79,9 +61,6 @@ public class PlaylistResource {
     @DELETE
     @Path("/{id}")
     public Response deletePlaylist(@PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
         playlistService.deletePlaylist(playlistId);
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
@@ -91,9 +70,6 @@ public class PlaylistResource {
     @DELETE
     @Path("/{id}/tracks/{trackid}")
     public Response deleteTrackFromPlaylist(@PathParam("id") int playlistId, @PathParam("trackid") int trackId, @QueryParam("token") String tokenString) {
-        if(!"1234-1234-1234".equals(tokenString)) {
-            return Response.status(403).build();
-        }
         trackService.deleteTrackFromPlaylist(trackId, playlistId, tokenString);
 
         URI uri = UriBuilder.fromPath("/playlists/" + playlistId + "/tracks").queryParam("token", tokenString).build();
