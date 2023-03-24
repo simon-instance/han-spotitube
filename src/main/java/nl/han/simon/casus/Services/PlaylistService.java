@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
 import nl.han.simon.casus.DAOs.TrackDAO;
 import nl.han.simon.casus.DTOs.*;
+import nl.han.simon.casus.Exceptions.DBException;
 
 import java.util.List;
 import java.util.stream.Collectors;
