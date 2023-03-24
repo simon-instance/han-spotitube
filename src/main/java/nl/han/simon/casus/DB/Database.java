@@ -17,11 +17,17 @@ public class Database {
             System.out.println("Failed to load properties file");
         }
 
-        String url = props.getProperty("javax.persistence.jdbc.url");
-        String user = props.getProperty("javax.persistence.jdbc.user");
-        String password = props.getProperty("javax.persistence.jdbc.password");
+        String devMode = props.getProperty("dev");
+        if("false".equals(devMode)) {
+            String url = props.getProperty("javax.persistence.jdbc.url");
+            String user = props.getProperty("javax.persistence.jdbc.user");
+            String password = props.getProperty("javax.persistence.jdbc.password");
 
-        return DriverManager.getConnection(url, user, password);
+            return DriverManager.getConnection(url, user, password);
+        } else {
+            String url = props.getProperty("url");
+            return DriverManager.getConnection(url);
+        }
     }
 
     // Method to execute a select statement and return a ResultSet

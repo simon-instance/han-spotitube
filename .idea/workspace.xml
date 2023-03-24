@@ -10,18 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/PlaylistDAOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DB/ScriptRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/casus_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/casus_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/PlaylistResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/TrackResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/TrackResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/DBExceptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/DBExceptionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/InsertExceptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/InsertExceptionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/PlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/CORSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -81,12 +80,14 @@
       <recent name="nl.han.simon.casus.Endpoints" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Simon\IdeaProjects\han-spotitube" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="nl.han.simon.casus.DAOs" />
       <recent name="nl.han.simon.casus.Services" />
       <recent name="nl.han.simon.casus.Endpoints" />
     </key>
@@ -187,17 +188,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlaylistResourceTest.updatePlaylistNameWithTokenString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaylistDAOTest.getPlaylists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.Endpoints.*" />
+          <option name="PATTERN" value="nl.han.simon.casus.DAOs.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.Endpoints" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.Endpoints.PlaylistResourceTest" />
-      <option name="METHOD_NAME" value="updatePlaylistNameWithTokenString" />
+      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
+      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.PlaylistDAOTest" />
+      <option name="METHOD_NAME" value="getPlaylists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -237,7 +238,7 @@
     </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
-      <item itemvalue="JUnit.PlaylistResourceTest.updatePlaylistNameWithTokenString" />
+      <item itemvalue="JUnit.PlaylistDAOTest.getPlaylists" />
       <item itemvalue="JUnit.PlaylistServiceTest.addTrackToPlaylist" />
       <item itemvalue="JUnit.PlaylistServiceTest.getAllPlaylists" />
       <item itemvalue="JUnit.All in casus" />
@@ -245,11 +246,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlaylistDAOTest.getPlaylists" />
         <item itemvalue="JUnit.PlaylistServiceTest.addTrackToPlaylist" />
         <item itemvalue="JUnit.All in casus" />
         <item itemvalue="JUnit.PlaylistServiceTest.getAllPlaylists" />
         <item itemvalue="JUnit.LoginResourceTest.userCorrectBothFields" />
-        <item itemvalue="JUnit.PlaylistResourceTest.updatePlaylistNameWithTokenString" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +298,7 @@
       <workItem from="1679438566172" duration="30000" />
       <workItem from="1679486451644" duration="10485000" />
       <workItem from="1679497720856" duration="915000" />
-      <workItem from="1679671798556" duration="1350000" />
+      <workItem from="1679671798556" duration="11547000" />
     </task>
     <servers />
   </component>
@@ -316,6 +317,25 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="JBossConfiguration">
         <watch expression="this.this$0" custom="java.lang.reflect.Proxy,java.lang.reflect.InvocationHandler" />
@@ -344,6 +364,9 @@
     <SUITE FILE_PATH="coverage/han_spotitube$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1679414769016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$All_in_casus.ic" NAME="All in casus Coverage Results" MODIFIED="1679568495155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest_getPlaylists.ic" NAME="PlaylistDAOTest.getPlaylists Coverage Results" MODIFIED="1679683109216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/casus$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1679390464154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>

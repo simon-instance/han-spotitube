@@ -11,6 +11,7 @@ public class UserDAO {
         try {
             var result = Database.executeSelectQuery("SELECT * FROM [user] WHERE [user] = ?", user);
 
+            result.next();
             var newUser = new TokenDTO();
             newUser.setUser(user);
             newUser.setToken(result.getString("token"));
