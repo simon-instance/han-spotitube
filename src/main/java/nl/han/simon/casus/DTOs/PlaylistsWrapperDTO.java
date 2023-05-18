@@ -2,7 +2,12 @@ package nl.han.simon.casus.DTOs;
 
 import java.util.List;
 
-public class PlaylistsWrapperDTO {
+public class PlaylistsWrapperDTO<T extends Playlist> {
+    public PlaylistsWrapperDTO() {
+    }
+    public PlaylistsWrapperDTO(List<T> playlists) {
+        this.playlists = playlists;
+    }
     public int getLength() {
         return length;
     }
@@ -11,16 +16,16 @@ public class PlaylistsWrapperDTO {
         this.length = length;
     }
 
-    public List<ConvertedPlaylistDTO> getPlaylists() {
+    public List<T> getPlaylists() {
         return playlists;
     }
 
-    public void setPlaylists(List<ConvertedPlaylistDTO> playlists) {
+    public void setPlaylists(List<T> playlists) {
         this.playlists = playlists;
     }
 
     private int length;
-    private List<ConvertedPlaylistDTO> playlists;
+    private List<T> playlists;
 
 
 }

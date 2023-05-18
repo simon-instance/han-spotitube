@@ -14,18 +14,10 @@ public class PlaylistService {
     public TrackDAO trackDAO;
 
     public PlaylistsWrapperDTO getAllPlaylists() {
-        String user = "john_doe";
+        String user = "jane_doe";
         var playlists = playlistDAO.getPlaylists(user);
 
-        // Database fetched user based off of tokenString
-        var convertedPlaylists = convertPlaylistOwners(playlists, user);
-
-        var playlistsWrapper = new PlaylistsWrapperDTO();
-
-        playlistsWrapper.setPlaylists(convertedPlaylists);
-        playlistsWrapper.setLength(getTotalLength(convertedPlaylists));
-
-        return playlistsWrapper;
+        return playlists;
     }
 
     public void updatePlaylistName(int id, String name) {
@@ -44,37 +36,6 @@ public class PlaylistService {
         playlistDAO.addTrackToPlaylist(playlistId, trackDTO.getId());
     }
 
-    private int getTotalLength(List<? extends Playlist> playlists) {
-        return playlists
-                .stream()
-                .mapToInt(this::getPlaylistLength)
-                .sum();
-    }
-
-    private int getPlaylistLength(Playlist playlistDTO) {
-        return playlistDTO
-                .getTracks()
-                .stream()
-                .mapToInt(TrackDTO::getDuration).sum();
-    }
-
-    private List<ConvertedPlaylistDTO> convertPlaylistOwners(List<PlaylistDTO> playlists, String user) {
-        return playlists
-                .stream()
-                .map(p -> toConvertedPlaylistDTO(p, user))
-                .collect(Collectors.toList());
-    }
-
-    private ConvertedPlaylistDTO toConvertedPlaylistDTO(PlaylistDTO playlistDTO, String user) {
-        ConvertedPlaylistDTO convertedPlaylistDTO = new ConvertedPlaylistDTO();
-
-        convertedPlaylistDTO.setId(playlistDTO.getId());
-        convertedPlaylistDTO.setTracks(playlistDTO.getTracks());
-        convertedPlaylistDTO.setOwner(playlistDTO.getOwner() == user);
-        convertedPlaylistDTO.setName(playlistDTO.getName());
-
-        return convertedPlaylistDTO;
-    }
 
     @Inject
     public void setPlaylistDAO(PlaylistDAO playlistDAO) {

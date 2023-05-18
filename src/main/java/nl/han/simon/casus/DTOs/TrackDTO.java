@@ -1,8 +1,5 @@
 package nl.han.simon.casus.DTOs;
 
-
-import java.util.Date;
-
 public class TrackDTO {
     public int getId() {
         return id;

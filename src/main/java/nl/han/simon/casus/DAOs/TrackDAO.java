@@ -1,5 +1,6 @@
 package nl.han.simon.casus.DAOs;
 
+import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
@@ -11,46 +12,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrackDAO {
+    private Database database;
+
+    @Inject
+    public void setDatabase(Database database) { this.database = database; }
 
     public List<TrackDTO> getPlaylistTracks(int playlistId) {
-        try {
-            List<TrackDTO> tracks = new ArrayList<>();
-
-            var trackResult = Database.executeSelectQuery("SELECT * FROM track\n" +
-                    "WHERE id IN\n" +
-                    "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
-
-            retrieveTrackData(trackResult, tracks);
-
-            return tracks;
-        } catch (SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+//        try {
+//            List<TrackDTO> tracks = new ArrayList<>();
+//
+//            var trackResult = database.executeSelectQuery("SELECT * FROM track\n" +
+//                    "WHERE id IN\n" +
+//                    "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
+//
+//            retrieveTrackData(trackResult, tracks);
+//
+//            return tracks;
+//        } catch (SQLException e) {
+//            throw new DBException(e.getMessage());
+//        }
+        return null;
     }
 
     public TrackWrapperDTO getAllTracksExcept(int playlistId) {
-        try {
-            var trackWrapperDTO = new TrackWrapperDTO();
-
-            var trackResult = Database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", playlistId);
-
-            List<TrackDTO> tracks = new ArrayList<>();
-            retrieveTrackData(trackResult, tracks);
-
-            trackWrapperDTO.setTracks(tracks);
-
-            return trackWrapperDTO;
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+//        try {
+//            var trackWrapperDTO = new TrackWrapperDTO();
+//
+//            var trackResult = database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", playlistId);
+//
+//            List<TrackDTO> tracks = new ArrayList<>();
+//            retrieveTrackData(trackResult, tracks);
+//
+//            trackWrapperDTO.setTracks(tracks);
+//
+//            return trackWrapperDTO;
+//        } catch(SQLException e) {
+//            throw new DBException(e.getMessage());
+//        }
+        return null;
     }
 
     public void deleteTrackFromPlaylist(int trackId, int playlistId) {
-        try {
-            Database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+//        try {
+//            database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
+//        } catch(SQLException e) {
+//            throw new DBException(e.getMessage());
+//        }
     }
 
     private void retrieveTrackData(ResultSet trackResult, List<TrackDTO> tracks) throws SQLException {
