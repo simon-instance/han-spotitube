@@ -1,6 +1,6 @@
 package nl.han.simon.casus.DTOs;
 
-public class TokenDTO {
+public class UserRequestDTO {
     public String getUser() {
         return user;
     }

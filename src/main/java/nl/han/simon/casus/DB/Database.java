@@ -37,12 +37,12 @@ public class Database {
         return executePreparedStatement(selectQuery, rowMapper, bindParams);
     }
 
-    public void executeUpdateQuery(String selectQuery, Object... bindParams) throws SQLException {
+    public void executeUpdateQuery(String updateQuery, Object... bindParams) throws SQLException {
         // Get a Connection object from the Database class
         Connection connection = getConnection();
 
         // Prepare the statement using the Connection object
-        PreparedStatement statement = connection.prepareStatement(selectQuery);
+        PreparedStatement statement = connection.prepareStatement(updateQuery);
 
         // Assign bind parameters to statement
         for (int i = 0; i < bindParams.length; i++) {

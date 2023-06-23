@@ -31,6 +31,7 @@ public class PlaylistDAO {
 
            List<ConvertedPlaylistDTO> convertedPlaylists = playlists.stream().map(playlistDTO -> {
                 var tracks = playlistTracks.stream()
+                        .filter(p -> p.getPlaylistId() == playlistDTO.getId())
                         .map(this::convertToTrackDTO)
                         .collect(Collectors.toList());
 
@@ -117,13 +118,15 @@ public class PlaylistDAO {
     // end playlists
 
     public void updatePlaylistName(int id, String name) {
-//        try {
-//            database.executeUpdateQuery("UPDATE [playlist] \n" +
-//                    "SET [name] = ?\n" +
-//                    "WHERE [id] = ?", name, id);
-//        } catch(SQLException e) {
-//            throw new DBException(e.getMessage());
-//        }
+        try {
+            database.executeUpdateQuery("""
+                UPDATE [playlist]
+                SET [name] = ?
+                WHERE [id] = ?
+            """, name, id);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
     public void addTrackToPlaylist(int playlistId, int trackId) {
@@ -134,24 +137,20 @@ public class PlaylistDAO {
 //        }
     }
 
-    public void addPlaylist(String playlistName, String tokenString) {
-//        try {
-//            var user = database.executeSelectQuery("SELECT * FROM [user] WHERE token = ?", tokenString);
-//
-//            if(user.next()) {
-//                database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, user.getString("user"));
-//            }
-//        } catch (SQLException e) {
-//            throw new InsertException("Failed to create playlist " + playlistName);
-//        }
+    public void addPlaylist(String playlistName, String userName) {
+        try {
+            database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, userName);
+        } catch (SQLException e) {
+            throw new InsertException("Failed to create playlist " + playlistName);
+        }
     }
 
     public void deletePlaylist(int playlistId) {
-//        try {
-//            database.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
-//        } catch(SQLException e) {
-//            throw new DBException(e.getMessage());
-//        }
+        try {
+            database.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
+        } catch(SQLException e) {
+            throw new DBException(e.getMessage());
+        }
     }
 
     @Inject

@@ -2,7 +2,7 @@ package nl.han.simon.casus.Services;
 
 import jakarta.inject.Inject;
 import nl.han.simon.casus.DAOs.UserDAO;
-import nl.han.simon.casus.DTOs.TokenDTO;
+import nl.han.simon.casus.DTOs.UserRequestDTO;
 
 public class LoginService {
     private UserDAO userDAO;
@@ -17,7 +17,7 @@ public class LoginService {
         return false;
     }
 
-    public TokenDTO getUserFrom(String user) {
+    public UserRequestDTO getUserFrom(String user) {
         return userDAO.getUserFromName(user);
     }
 

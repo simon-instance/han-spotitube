@@ -5,7 +5,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import nl.han.simon.casus.DTOs.LoginDTO;
-import nl.han.simon.casus.DTOs.TokenDTO;
 import nl.han.simon.casus.Services.LoginService;
 
 @Path("/login")

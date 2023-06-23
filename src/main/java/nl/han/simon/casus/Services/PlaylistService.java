@@ -3,29 +3,33 @@ package nl.han.simon.casus.Services;
 import jakarta.inject.Inject;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
 import nl.han.simon.casus.DAOs.TrackDAO;
+import nl.han.simon.casus.DAOs.UserDAO;
 import nl.han.simon.casus.DTOs.*;
-import nl.han.simon.casus.Exceptions.DBException;
+import nl.han.simon.casus.Exceptions.PermissionException;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class PlaylistService {
     public PlaylistDAO playlistDAO;
     public TrackDAO trackDAO;
+    public UserDAO userDAO;
 
-    public PlaylistsWrapperDTO getAllPlaylists() {
-        String user = "jane_doe";
+    public PlaylistsWrapperDTO getAllPlaylists(String tokenString) {
+        var user = userDAO.getUserNameFromTokenString(tokenString);
         var playlists = playlistDAO.getPlaylists(user);
 
         return playlists;
     }
 
-    public void updatePlaylistName(int id, String name) {
-        playlistDAO.updatePlaylistName(id, name);
+    public void updatePlaylistName(int id, ConvertedPlaylistDTO newPlaylist) {
+        if(!newPlaylist.isOwner()) {
+            throw new PermissionException("You're not the owner of this playlist");
+        }
+        playlistDAO.updatePlaylistName(id, newPlaylist.getName());
     }
 
     public void addPlaylist(ConvertedPlaylistDTO newPlaylist, String tokenString) {
-        playlistDAO.addPlaylist(newPlaylist.getName(), tokenString);
+        var user = userDAO.getUserNameFromTokenString(tokenString);
+        playlistDAO.addPlaylist(newPlaylist.getName(), user);
     }
 
     public void deletePlaylist(int playlistId) {
@@ -45,5 +49,10 @@ public class PlaylistService {
     @Inject
     public void setTrackDAO(TrackDAO trackDAO) {
         this.trackDAO = trackDAO;
+    }
+
+    @Inject
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 }

@@ -18,7 +18,7 @@ public class PlaylistResource {
     private TrackService trackService;
     @GET
     public Response playlists(@QueryParam("token") String tokenString) {
-        var playlistsWrapper = playlistService.getAllPlaylists();
+        var playlistsWrapper = playlistService.getAllPlaylists(tokenString);
         return Response.ok().entity(playlistsWrapper).build();
     }
 
@@ -43,7 +43,7 @@ public class PlaylistResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePlaylistName(ConvertedPlaylistDTO newPlaylist, @PathParam("id") int playlistId, @QueryParam("token") String tokenString) {
-        playlistService.updatePlaylistName(playlistId, newPlaylist.getName());
+        playlistService.updatePlaylistName(playlistId, newPlaylist);
 
         URI uri = UriBuilder.fromPath("/playlists").queryParam("token", tokenString).build();
         return Response.status(303).location(uri).build();

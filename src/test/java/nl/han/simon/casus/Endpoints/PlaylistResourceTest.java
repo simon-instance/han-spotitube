@@ -50,7 +50,7 @@ class PlaylistResourceTest {
         String tokenString = "1234-1234-1234";
 
         var expected = new PlaylistsWrapperDTO();
-        Mockito.doReturn(expected).when(mockedPlaylistService).getAllPlaylists();
+        Mockito.doReturn(expected).when(mockedPlaylistService).getAllPlaylists(tokenString);
 
         //act
         Response res = sut.playlists(tokenString);
