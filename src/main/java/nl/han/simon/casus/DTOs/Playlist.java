@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Playlist {
     private int id;
-    private List<TrackDTO> tracks;
+    private List<? extends TrackDTO> tracks;
     private String name;
 
     public int getId() {
@@ -16,11 +16,11 @@ public abstract class Playlist {
     }
 
 
-    public List<TrackDTO> getTracks() {
+    public List<? extends TrackDTO> getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<TrackDTO> tracks) {
+    public void setTracks(List<? extends TrackDTO> tracks) {
         this.tracks = tracks;
     }
 

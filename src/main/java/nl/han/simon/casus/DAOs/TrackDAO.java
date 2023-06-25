@@ -2,13 +2,9 @@ package nl.han.simon.casus.DAOs;
 
 import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
-import nl.han.simon.casus.Exceptions.DBException;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TrackDAO {
@@ -18,61 +14,38 @@ public class TrackDAO {
     public void setDatabase(Database database) { this.database = database; }
 
     public List<TrackDTO> getPlaylistTracks(int playlistId) {
-//        try {
-//            List<TrackDTO> tracks = new ArrayList<>();
-//
-//            var trackResult = database.executeSelectQuery("SELECT * FROM track\n" +
-//                    "WHERE id IN\n" +
-//                    "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", playlistId);
-//
-//            retrieveTrackData(trackResult, tracks);
-//
-//            return tracks;
-//        } catch (SQLException e) {
-//            throw new DBException(e.getMessage());
-//        }
-        return null;
+        var trackResult = database.executeSelectQuery("SELECT * FROM track\n" +
+                "WHERE id IN\n" +
+                "(SELECT trackId FROM playlistTracks WHERE playlistId = ?)", getTrackMapper(), playlistId);
+
+        return trackResult;
     }
 
     public TrackWrapperDTO getAllTracksExcept(int playlistId) {
-//        try {
-//            var trackWrapperDTO = new TrackWrapperDTO();
-//
-//            var trackResult = database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", playlistId);
-//
-//            List<TrackDTO> tracks = new ArrayList<>();
-//            retrieveTrackData(trackResult, tracks);
-//
-//            trackWrapperDTO.setTracks(tracks);
-//
-//            return trackWrapperDTO;
-//        } catch(SQLException e) {
-//            throw new DBException(e.getMessage());
-//        }
-        return null;
+        var trackWrapperDTO = new TrackWrapperDTO();
+
+        var trackResult = database.executeSelectQuery("SELECT * FROM [track] WHERE [id] NOT IN (SELECT [trackId] FROM [playlistTracks] WHERE [playlistId] = ?)", getTrackMapper(), playlistId);
+
+        trackWrapperDTO.setTracks(trackResult);
+
+        return trackWrapperDTO;
+    }
+
+    public TrackWrapperDTO getAllTracks() {
+        var trackWrapperDTO = new TrackWrapperDTO();
+
+        var trackResult = database.executeSelectQuery("SELECT * FROM [track]", getTrackMapper());
+
+        trackWrapperDTO.setTracks(trackResult);
+
+        return trackWrapperDTO;
     }
 
     public void deleteTrackFromPlaylist(int trackId, int playlistId) {
-//        try {
-//            database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
-//        } catch(SQLException e) {
-//            throw new DBException(e.getMessage());
-//        }
+        database.execute("DELETE FROM [playlistTracks] WHERE [trackId] = ? AND [playlistId] = ?", trackId, playlistId);
     }
 
-    private void retrieveTrackData(ResultSet trackResult, List<TrackDTO> tracks) throws SQLException {
-        while (trackResult.next()) {
-            TrackDTO track = new TrackDTO();
-            track.setId(trackResult.getInt("id"));
-            track.setTitle(trackResult.getString("title"));
-            track.setPerformer(trackResult.getString("performer"));
-            track.setDuration(trackResult.getInt("duration"));
-            track.setAlbum(trackResult.getString("album"));
-            track.setPlaycount(trackResult.getInt("playcount"));
-            track.setPublicationDate(trackResult.getString("publicationDate"));
-            track.setDescription(trackResult.getString("description"));
-            track.setOfflineAvailable(trackResult.getBoolean("offlineAvailable"));
-            tracks.add(track);
-        }
+    public RowMapper<TrackDTO> getTrackMapper() {
+        return (res) -> new TrackDTO(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), res.getString(5), res.getInt(6), res.getString(7), res.getString(8), res.getBoolean(9));
     }
 }

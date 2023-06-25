@@ -28,7 +28,6 @@ class PlaylistServiceTest {
 
         var mockedPlaylistDAO = Mockito.mock(PlaylistDAO.class);
         this.mockedPlaylistDAO = mockedPlaylistDAO;
-        this.mockedPlaylistDAO.setTrackDAO(mockedTrackDAO);
 
         mockedPlaylistService.setPlaylistDAO(mockedPlaylistDAO);
         mockedPlaylistService.setTrackDAO(mockedTrackDAO);

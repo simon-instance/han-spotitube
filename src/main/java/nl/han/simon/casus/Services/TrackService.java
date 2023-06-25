@@ -17,7 +17,12 @@ public class TrackService {
     }
 
     public TrackWrapperDTO getTracksExcludePlaylist(int playlistId) {
-        var tracks = trackDAO.getAllTracksExcept(playlistId);
+        TrackWrapperDTO tracks;
+        if(playlistId == 0) {
+            tracks = trackDAO.getAllTracks();
+        } else {
+            tracks = trackDAO.getAllTracksExcept(playlistId);
+        }
 
         return tracks;
     }

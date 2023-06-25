@@ -3,6 +3,8 @@ package nl.han.simon.casus.DTOs;
 public class PlaylistTrackDTO extends TrackDTO {
     private int playlistId;
 
+    public PlaylistTrackDTO() {}
+
     public PlaylistTrackDTO(int playlistId, int id, String album, String description, int duration, boolean offlineAvailable, String performer, int playcount, String publicationDate, String title) {
         this.setPlaylistId(playlistId);
         this.setId(id);
