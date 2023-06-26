@@ -1,10 +1,12 @@
 package nl.han.simon.casus.Endpoints;
 
-import jakarta.persistence.Convert;
 import jakarta.ws.rs.core.Response;
 import nl.han.simon.casus.DAOs.PlaylistDAO;
 import nl.han.simon.casus.DAOs.TrackDAO;
-import nl.han.simon.casus.DTOs.*;
+import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
+import nl.han.simon.casus.DTOs.PlaylistsWrapperDTO;
+import nl.han.simon.casus.DTOs.TrackDTO;
+import nl.han.simon.casus.DTOs.TrackWrapperDTO;
 import nl.han.simon.casus.Services.PlaylistService;
 import nl.han.simon.casus.Services.TrackService;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,11 +14,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.mockito.Mockito;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 class PlaylistResourceTest {
     private PlaylistResource sut;

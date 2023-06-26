@@ -1,14 +1,13 @@
 package nl.han.simon.casus.DAOs;
 
 import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.UserRequestDTO;
-import nl.han.simon.casus.Exceptions.DBException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +15,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserDAOTest {
     private UserDAO sut;
-    private Database mockedDatabase;
+    private QueryHelper mockedQueryHelper;
     private String username;
     private String tokenString;
 
     @BeforeEach
     public void setup() {
-        mockedDatabase = Mockito.mock(Database.class);
+        mockedQueryHelper = Mockito.mock(QueryHelper.class);
 
         sut = new UserDAO();
-        sut.setDatabase(mockedDatabase);
+        sut.setQueryHelper(mockedQueryHelper);
 
         username = "john_doe";
         tokenString = "1234-1234-1234";
@@ -37,7 +36,7 @@ public class UserDAOTest {
         var user = new UserRequestDTO();
         List<UserRequestDTO> users = new ArrayList<>();
         users.add(user);
-        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
+        Mockito.doReturn(users).when(mockedQueryHelper).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
         // Act/Assert
         assertEquals(user, sut.getUserFromName(username));
     }
@@ -49,7 +48,7 @@ public class UserDAOTest {
         user.setUser(username);
         List<UserRequestDTO> users = new ArrayList<>();
         users.add(user);
-        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
+        Mockito.doReturn(users).when(mockedQueryHelper).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
         // Act/Assert
         assertEquals(username, sut.getUserNameFromTokenString(tokenString));
     }

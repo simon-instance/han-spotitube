@@ -5,7 +5,8 @@ import nl.han.simon.casus.DTOs.UserRequestDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginServiceTest {
     private LoginService sut;

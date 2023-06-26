@@ -1,8 +1,12 @@
 package nl.han.simon.casus.DAOs;
 
 import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
-import nl.han.simon.casus.DTOs.*;
+import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
+import nl.han.simon.casus.DTOs.PlaylistDTO;
+import nl.han.simon.casus.DTOs.PlaylistTrackDTO;
+import nl.han.simon.casus.DTOs.PlaylistsWrapperDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -15,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlaylistDAOTest {
     private PlaylistDAO sut;
-    private Database mockedDatabase;
+    private QueryHelper mockedQueryHelper;
 
 
     // Test data
@@ -30,9 +34,9 @@ class PlaylistDAOTest {
     @BeforeEach
     public void setup() {
         // Arrange
-        mockedDatabase = Mockito.mock(Database.class);
+        mockedQueryHelper = Mockito.mock(QueryHelper.class);
         sut = new PlaylistDAO();
-        sut.setDatabase(mockedDatabase);
+        sut.setQueryHelper(mockedQueryHelper);
 
         // Test data
         var playlistTrack = new PlaylistTrackDTO();
@@ -60,7 +64,7 @@ class PlaylistDAOTest {
 
         PlaylistsWrapperDTO<ConvertedPlaylistDTO> convertedPlaylists = new PlaylistsWrapperDTO<>(convertedPlaylistData);
 
-        Mockito.doReturn(playlistWrapperData).when(mockedDatabase).executeSelectQuery(
+        Mockito.doReturn(playlistWrapperData).when(mockedQueryHelper).executeSelectQuery(
                 ArgumentMatchers.anyString(),
                 ArgumentMatchers.isA(RowMapper.class)
         );
@@ -98,7 +102,7 @@ class PlaylistDAOTest {
     @Test
     public void getPlaylistTracks() {
         // Arrange
-        Mockito.doReturn(playlistTracks).when(mockedDatabase).executeSelectQuery(
+        Mockito.doReturn(playlistTracks).when(mockedQueryHelper).executeSelectQuery(
                 Mockito.anyString(),
                 Mockito.any()
         );
@@ -112,7 +116,7 @@ class PlaylistDAOTest {
         // Act
         sut.updatePlaylistName(PLAYLIST_ID, PLAYLIST_NAME);
         // Assert
-        Mockito.verify(mockedDatabase).executeUpdateQuery(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
+        Mockito.verify(mockedQueryHelper).executeUpdateQuery(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
     }
 
     @Test
@@ -122,7 +126,7 @@ class PlaylistDAOTest {
         // Act
         sut.addTrackToPlaylist(PLAYLIST_ID, trackId);
         // Assert
-        Mockito.verify(mockedDatabase).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt());
+        Mockito.verify(mockedQueryHelper).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt());
     }
 
     @Test
@@ -131,7 +135,7 @@ class PlaylistDAOTest {
         // Act
         sut.addPlaylist(PLAYLIST_NAME, USER);
         // Assert
-        Mockito.verify(mockedDatabase).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyString());
+        Mockito.verify(mockedQueryHelper).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyString());
     }
 
     @Test
@@ -139,6 +143,6 @@ class PlaylistDAOTest {
         // Act
         sut.deletePlaylist(PLAYLIST_ID);
         // Assert
-        Mockito.verify(mockedDatabase).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
+        Mockito.verify(mockedQueryHelper).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
     }
 }

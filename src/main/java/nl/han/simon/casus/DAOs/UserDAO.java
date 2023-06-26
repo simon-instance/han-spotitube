@@ -1,7 +1,8 @@
 package nl.han.simon.casus.DAOs;
 
 import jakarta.inject.Inject;
-import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.QueryHelper;
+import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.UserRequestDTO;
 import nl.han.simon.casus.Exceptions.DBException;
@@ -9,17 +10,17 @@ import nl.han.simon.casus.Exceptions.DBException;
 import java.sql.SQLException;
 
 public class UserDAO {
-    private Database database;
+    private QueryHelper queryHelper;
 
     @Inject
-    public void setDatabase(Database database) { this.database = database; }
+    public void setQueryHelper(QueryHelper queryHelper) { this.queryHelper = queryHelper; }
     public UserRequestDTO getUserFromName(String user) {
-        var result = database.executeSelectQuery("SELECT [user], [token] FROM [user] WHERE [user] = ?", getUserTokenRowMapper(), user).stream().findFirst().orElseThrow();
+        var result = queryHelper.executeSelectQuery("SELECT [user], [token] FROM [user] WHERE [user] = ?", getUserTokenRowMapper(), user).stream().findFirst().orElseThrow();
         return result;
     }
 
     public String getUserNameFromTokenString(String tokenString) {
-        var result = database.executeSelectQuery("SELECT [user] FROM [user] WHERE token = ?", getUserNameRowMapper(), tokenString).stream().findFirst().orElseThrow();
+        var result = queryHelper.executeSelectQuery("SELECT [user] FROM [user] WHERE token = ?", getUserNameRowMapper(), tokenString).stream().findFirst().orElseThrow();
         return result.getUser();
     }
 

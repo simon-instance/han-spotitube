@@ -1,6 +1,7 @@
 package nl.han.simon.casus.DAOs;
 
 import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.*;
 
@@ -8,15 +9,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlaylistDAO {
-    private Database database;
+    private QueryHelper queryHelper;
 
-    public void setDatabase(Database database) {
-        this.database = database;
+    public void setQueryHelper(QueryHelper queryHelper) {
+        this.queryHelper = queryHelper;
     }
 
     //playlists
     public PlaylistsWrapperDTO<ConvertedPlaylistDTO> getPlaylists(String user) {
-        var playlists = database.executeSelectQuery("SELECT id, name, owner FROM playlist p\n", playlistsRowMapper());
+        var playlists = queryHelper.executeSelectQuery("SELECT id, name, owner FROM playlist p\n", playlistsRowMapper());
 
         var playlistTracks = getPlaylistTracks();
 
@@ -42,7 +43,7 @@ public class PlaylistDAO {
     }
 
     public List<PlaylistTrackDTO> getPlaylistTracks() {
-        return database.executeSelectQuery("SELECT pt.playlistId, t.* FROM playlist p\n" +
+        return queryHelper.executeSelectQuery("SELECT pt.playlistId, t.* FROM playlist p\n" +
                 "INNER JOIN playlistTracks pt ON p.id = pt.playlistId\n" +
                 "INNER JOIN track t ON pt.trackId = t.id", playlistsTracksRowMapper());
     }
@@ -95,7 +96,7 @@ public class PlaylistDAO {
     }
 
     public void updatePlaylistName(int id, String name) {
-        database.executeUpdateQuery("""
+        queryHelper.executeUpdateQuery("""
             UPDATE [playlist]
             SET [name] = ?
             WHERE [id] = ?
@@ -103,14 +104,14 @@ public class PlaylistDAO {
     }
 
     public void addTrackToPlaylist(int playlistId, int trackId) {
-        database.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
+        queryHelper.execute("INSERT INTO [playlistTracks]([playlistId], [trackId]) VALUES(?, ?)", playlistId, trackId);
     }
 
     public void addPlaylist(String playlistName, String userName) {
-        database.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, userName);
+        queryHelper.execute("INSERT INTO [playlist]([name], [owner]) VALUES(?, ?)", playlistName, userName);
     }
 
     public void deletePlaylist(int playlistId) {
-        database.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
+        queryHelper.execute("DELETE FROM [playlist] WHERE [id] = ?", playlistId);
     }
 }

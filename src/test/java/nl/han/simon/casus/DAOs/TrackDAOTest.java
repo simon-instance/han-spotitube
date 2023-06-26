@@ -1,6 +1,7 @@
 package nl.han.simon.casus.DAOs;
 
 import nl.han.simon.casus.DB.Database;
+import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DTOs.TrackDTO;
 import nl.han.simon.casus.DTOs.TrackWrapperDTO;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class TrackDAOTest {
     private TrackDAO sut;
-    private Database mockedDatabase;
+    private QueryHelper mockedQueryHelper;
 
     private List<TrackDTO> tracks;
 
@@ -28,9 +29,9 @@ public class TrackDAOTest {
     @BeforeEach
     public void setup() {
         // Arrange
-        mockedDatabase = Mockito.mock(Database.class);
+        mockedQueryHelper = Mockito.mock(QueryHelper.class);
         sut = new TrackDAO();
-        sut.setDatabase(mockedDatabase);
+        sut.setQueryHelper(mockedQueryHelper);
 
         var track = new TrackDTO();
         track.setId(TRACK_ID);
@@ -42,7 +43,7 @@ public class TrackDAOTest {
     @Test
     public void getPlaylistTracks() {
         // Arrange
-        Mockito.doReturn(tracks).when(mockedDatabase).executeSelectQuery(
+        Mockito.doReturn(tracks).when(mockedQueryHelper).executeSelectQuery(
             ArgumentMatchers.anyString(),
             ArgumentMatchers.any(),
             ArgumentMatchers.anyInt()
@@ -56,7 +57,7 @@ public class TrackDAOTest {
         // Arrange
         var trackWrapper = new TrackWrapperDTO();
         trackWrapper.setTracks(tracks);
-        Mockito.doReturn(tracks).when(mockedDatabase).executeSelectQuery(
+        Mockito.doReturn(tracks).when(mockedQueryHelper).executeSelectQuery(
                 ArgumentMatchers.anyString(),
                 ArgumentMatchers.any(),
                 ArgumentMatchers.anyInt()
@@ -70,7 +71,7 @@ public class TrackDAOTest {
         // Arrange
         var trackWrapper = new TrackWrapperDTO();
         trackWrapper.setTracks(tracks);
-        Mockito.doReturn(tracks).when(mockedDatabase).executeSelectQuery(
+        Mockito.doReturn(tracks).when(mockedQueryHelper).executeSelectQuery(
                 ArgumentMatchers.anyString(),
                 ArgumentMatchers.any()
         );
@@ -83,6 +84,6 @@ public class TrackDAOTest {
         // Act
         sut.deleteTrackFromPlaylist(TRACK_ID, PLAYLIST_ID);
         // Assert
-        Mockito.verify(mockedDatabase).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt());
+        Mockito.verify(mockedQueryHelper).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt());
     }
 }
