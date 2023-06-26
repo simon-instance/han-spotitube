@@ -11,20 +11,10 @@ public class LoginDTO {
         this.user = user;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void verify() throws Exception {
-
-    }
-
     private String user;
     private String password;
-
-
 }

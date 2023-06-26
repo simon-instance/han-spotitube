@@ -16,10 +16,6 @@ public class LoginResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(LoginDTO user) {
-        if(!loginService.isAuthenticated(user.getUser(), user.getPassword())) {
-            return Response.status(401).build();
-        }
-
         var resUser = loginService.getUserFrom(user.getUser());
 
         return Response.ok().entity(resUser).build();

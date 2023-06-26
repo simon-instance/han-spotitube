@@ -8,9 +8,6 @@ public class PlaylistsWrapperDTO<T extends Playlist> {
     public PlaylistsWrapperDTO(List<T> playlists) {
         this.playlists = playlists;
     }
-    public int getLength() {
-        return length;
-    }
 
     public void setLength(int length) {
         this.length = length;

@@ -1,96 +1,108 @@
 package nl.han.simon.casus.Services;
 
 import nl.han.simon.casus.DAOs.PlaylistDAO;
-import nl.han.simon.casus.DAOs.TrackDAO;
+import nl.han.simon.casus.DAOs.UserDAO;
+import nl.han.simon.casus.DTOs.ConvertedPlaylistDTO;
+import nl.han.simon.casus.DTOs.PlaylistsWrapperDTO;
 import nl.han.simon.casus.DTOs.TrackDTO;
-import nl.han.simon.casus.Endpoints.PlaylistResource;
+import nl.han.simon.casus.Exceptions.PermissionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlaylistServiceTest {
-    private PlaylistResource sut;
-
-    private PlaylistService mockedPlaylistService;
-    private TrackService mockedTrackService;
+    private PlaylistService sut;
+    private PlaylistService sutSpy;
+    private UserDAO mockedUserDAO;
     private PlaylistDAO mockedPlaylistDAO;
+    // Testdata
+    private String username;
+    private PlaylistsWrapperDTO<ConvertedPlaylistDTO> playlists;
+    private ConvertedPlaylistDTO convertedPlaylist;
 
     @BeforeEach
     public void setup() {
-        sut = new PlaylistResource();
+        mockedUserDAO = Mockito.mock(UserDAO.class);
+        mockedPlaylistDAO = Mockito.mock(PlaylistDAO.class);
 
-        mockedPlaylistService = Mockito.mock(PlaylistService.class);
-        mockedTrackService = Mockito.mock(TrackService.class);
+        sut = new PlaylistService();
 
-        var mockedTrackDAO = Mockito.mock(TrackDAO.class);
+        sut.setPlaylistDAO(mockedPlaylistDAO);
+        sut.setUserDAO(mockedUserDAO);
 
-        var mockedPlaylistDAO = Mockito.mock(PlaylistDAO.class);
-        this.mockedPlaylistDAO = mockedPlaylistDAO;
+        sutSpy = Mockito.spy(sut);
 
-        mockedPlaylistService.setPlaylistDAO(mockedPlaylistDAO);
-        mockedPlaylistService.setTrackDAO(mockedTrackDAO);
-        mockedTrackService.setTrackDAO(mockedTrackDAO);
+        // Testdata
+        username = "john_doe";
+        playlists = new PlaylistsWrapperDTO<>();
 
-        sut.setPlaylistService(mockedPlaylistService);
-        sut.setTrackService(mockedTrackService);
+        List<ConvertedPlaylistDTO> convertedPlaylists = new ArrayList<>();
+        convertedPlaylist = new ConvertedPlaylistDTO();
+        convertedPlaylist.setOwner(true);
+        convertedPlaylists.add(convertedPlaylist);
+
+        playlists.setPlaylists(convertedPlaylists);
     }
 
     @Test
-    void getAllPlaylists() {
-        //arrange
+    public void getAllPlaylists() {
+        // Arrange
+        Mockito.doReturn(username).when(mockedUserDAO).getUserNameFromTokenString(ArgumentMatchers.anyString());
+        Mockito.doReturn(playlists).when(mockedPlaylistDAO).getPlaylists(ArgumentMatchers.anyString());
+        // Act/Assert
+        assertEquals(playlists, sutSpy.getAllPlaylists(ArgumentMatchers.anyString()));
+    }
 
+    @Test
+    public void updatePlaylistName() {
+        //arrange
+        convertedPlaylist.setName("newName");
         //act
-
-
+        sutSpy.updatePlaylistName(convertedPlaylist.getId(), convertedPlaylist);
         //assert
-//        Mockito.verify(mockedPlaylistService).getAllPlaylists();
+        Mockito.verify(sutSpy).updatePlaylistName(convertedPlaylist.getId(), convertedPlaylist);
     }
 
     @Test
-    void updatePlaylistName() {
-        //arrange
-        String token = "1234-1234-1234";
-        int playlistId = 3;
+    public void updatePlaylistName_PermissionError() {
+        // Arrange
+        convertedPlaylist.setOwner(false);
+        // Act/Assert
+        assertThrows(PermissionException.class, () -> sutSpy.updatePlaylistName(convertedPlaylist.getId(), convertedPlaylist));
+        Mockito.verify(sutSpy).updatePlaylistName(convertedPlaylist.getId(), convertedPlaylist);
+    }
+
+    @Test
+    public void addPlaylist() {
+        // Arrange
+        Mockito.doReturn(username).when(mockedUserDAO).getUserNameFromTokenString(ArgumentMatchers.anyString());
+        // Act
+        sutSpy.addPlaylist(convertedPlaylist, username);
+        // Assert
+        Mockito.verify(sutSpy).addPlaylist(Mockito.isA(ConvertedPlaylistDTO.class), Mockito.anyString());
+    }
+
+    @Test
+    public void deletePlaylist() {
+        // Act
+        sutSpy.deletePlaylist(convertedPlaylist.getId());
+        // Assert
+        Mockito.verify(sutSpy).deletePlaylist(convertedPlaylist.getId());
+    }
+
+    @Test
+    public void addTrackToPlaylist() {
+        // Arrange
         var track = new TrackDTO();
-        track.setId(2);
-
-        //act
-        sut.addTrackToPlaylist(playlistId, token, track);
-
-        //assert
-        Mockito.verify(mockedPlaylistService).addTrackToPlaylist(playlistId, track);
-    }
-
-    @Test
-    void addPlaylist() {
-    }
-
-    @Test
-    void deletePlaylist() {
-    }
-
-    @Test
-    void addTrackToPlaylist() {
-        //arrange
-        String token = "1234-1234-1234";
-        int playlistId = 3;
-        var track = new TrackDTO();
-        track.setId(2);
-
-        //act
-        sut.addTrackToPlaylist(playlistId, token, track);
-
-        //assert
-        Mockito.verify(mockedPlaylistService).addTrackToPlaylist(playlistId, track);
-    }
-
-    @Test
-    void setPlaylistDAO() {
-    }
-
-    @Test
-    void setTrackDAO() {
+        // Act
+        sutSpy.addTrackToPlaylist(convertedPlaylist.getId(), track);
+        // Assert
+        Mockito.verify(sutSpy).addTrackToPlaylist(ArgumentMatchers.anyInt(), ArgumentMatchers.isA(TrackDTO.class));
     }
 }

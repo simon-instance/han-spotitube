@@ -3,10 +3,12 @@ package nl.han.simon.casus.DAOs;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.UserRequestDTO;
+import nl.han.simon.casus.Exceptions.DBException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class UserDAOTest {
         var user = new UserRequestDTO();
         List<UserRequestDTO> users = new ArrayList<>();
         users.add(user);
-        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.any(), Mockito.anyString());
+        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
         // Act/Assert
         assertEquals(user, sut.getUserFromName(username));
     }
@@ -47,7 +49,7 @@ public class UserDAOTest {
         user.setUser(username);
         List<UserRequestDTO> users = new ArrayList<>();
         users.add(user);
-        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.any(), Mockito.anyString());
+        Mockito.doReturn(users).when(mockedDatabase).executeSelectQuery(Mockito.anyString(), Mockito.isA(RowMapper.class), Mockito.anyString());
         // Act/Assert
         assertEquals(username, sut.getUserNameFromTokenString(tokenString));
     }

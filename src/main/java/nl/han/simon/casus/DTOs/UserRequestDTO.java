@@ -9,10 +9,6 @@ public class UserRequestDTO {
         this.user = user;
     }
 
-    public String getToken() {
-        return token;
-    }
-
     public void setToken(String token) {
         this.token = token;
     }

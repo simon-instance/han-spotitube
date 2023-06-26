@@ -14,21 +14,13 @@ public class UserDAO {
     @Inject
     public void setDatabase(Database database) { this.database = database; }
     public UserRequestDTO getUserFromName(String user) {
-        try {
-            var result = database.executeSelectQuery("SELECT [user], [token] FROM [user] WHERE [user] = ?", getUserTokenRowMapper(), user).stream().findFirst().orElseThrow(SQLException::new);
-            return result;
-        } catch(SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+        var result = database.executeSelectQuery("SELECT [user], [token] FROM [user] WHERE [user] = ?", getUserTokenRowMapper(), user).stream().findFirst().orElseThrow();
+        return result;
     }
 
     public String getUserNameFromTokenString(String tokenString) {
-        try {
-            var result = database.executeSelectQuery("SELECT [user] FROM [user] WHERE token = ?", getUserNameRowMapper(), tokenString).stream().findFirst().orElseThrow(SQLException::new);
-            return result.getUser();
-        } catch (SQLException e) {
-            throw new DBException(e.getMessage());
-        }
+        var result = database.executeSelectQuery("SELECT [user] FROM [user] WHERE token = ?", getUserNameRowMapper(), tokenString).stream().findFirst().orElseThrow();
+        return result.getUser();
     }
 
     public RowMapper<UserRequestDTO> getUserNameRowMapper() {

@@ -72,8 +72,7 @@ public class TrackDAOTest {
         trackWrapper.setTracks(tracks);
         Mockito.doReturn(tracks).when(mockedDatabase).executeSelectQuery(
                 ArgumentMatchers.anyString(),
-                ArgumentMatchers.any(),
-                ArgumentMatchers.anyInt()
+                ArgumentMatchers.any()
         );
         // Act/Assert
         assertEquals(tracks, sut.getAllTracks().getTracks());

@@ -2,6 +2,7 @@ package nl.han.simon.casus.Endpoints;
 
 import jakarta.ws.rs.core.Response;
 import nl.han.simon.casus.DTOs.LoginDTO;
+import nl.han.simon.casus.DTOs.UserRequestDTO;
 import nl.han.simon.casus.Services.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,40 +25,20 @@ class LoginResourceTest {
     }
 
     @Test
-    public void userIncorrectBothFields() {
+    public void userCorrectBothFields() {
         // arrange
         var loginDTO = new LoginDTO();
 
-        loginDTO.setUser("invalidName");
-        loginDTO.setPassword("invalidPassword");
+        loginDTO.setUser("john_doe");
+        loginDTO.setPassword("123456");
 
-        Mockito.when(mockedLoginService.isAuthenticated(Mockito.anyString(), Mockito.anyString())).thenReturn(false);
+        var expected = new UserRequestDTO();
+        expected.setUser("john_doe");
+        expected.setToken("1234-1234-1234");
 
-        // act
-        Response res = sut.login(loginDTO);
+        Mockito.doReturn(expected).when(mockedLoginService).getUserFrom(Mockito.anyString());
 
-        // assert
-        assertEquals(401, res.getStatus());
-    }
-
-    @Test
-    public void userCorrectBothFields() {
-//        // arrange
-//        var loginDTO = new LoginDTO();
-//
-//        loginDTO.setUser("john_doe");
-//        loginDTO.setPassword("123456");
-//
-//        var expected = new TokenDTO();
-//        expected.setUser("john_doe");
-//        expected.setToken("1234-1234-1234");
-//
-//        Mockito.when(mockedLoginService.isAuthenticated(Mockito.anyString(), Mockito.anyString())).thenReturn(true);
-//        Mockito.doReturn(expected).when(mockedLoginService).getUserFrom(Mockito.anyString());
-//        // act
-//        var res = sut.login(loginDTO);
-//
-//        // assert
-//       assertEquals(expected, res.getEntity());
+        // Act/Assert
+       assertEquals(expected, sut.login(loginDTO).getEntity());
     }
 }

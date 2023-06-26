@@ -10,18 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/TrackDAOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/NoSuchElementExceptionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services/LoginServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services/TrackServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/TrackDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistTrackDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistTrackDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/TrackDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/TrackService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/PlaylistDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/PlaylistDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/PlaylistResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/LoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistsWrapperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/PlaylistsWrapperDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/UserRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Endpoints/LoginResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/DBException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/DBException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/InsertException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Exceptions/Mapper/InsertExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/Services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/TrackDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/TrackDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/UserDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints/LoginResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services/PlaylistServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services/PlaylistServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +104,7 @@
       <recent name="nl.han.simon.casus.Endpoints" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.java in casus">
     <configuration name="JBoss/WildFly 25.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/casus-1.0-SNAPSHOT" />
       <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
@@ -172,7 +176,7 @@
         </option>
       </method>
     </configuration>
-    <configuration name="TrackDAOTest.deleteFromPlaylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaylistDAOTest.getPlaylistTracks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
       <extension name="coverage">
         <pattern>
@@ -181,46 +185,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.TrackDAOTest" />
-      <option name="METHOD_NAME" value="deleteFromPlaylist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TrackDAOTest.getAllTracksExcept" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DAOs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.TrackDAOTest" />
-      <option name="METHOD_NAME" value="getAllTracksExcept" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TrackDAOTest.getPlaylistTracks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DAOs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.TrackDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.PlaylistDAOTest" />
       <option name="METHOD_NAME" value="getPlaylistTracks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDAOTest.getUserFromName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Services in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="casus" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDAOTest.getUserNameFromTokenString_Throw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
       <extension name="coverage">
         <pattern>
@@ -230,43 +210,43 @@
       </extension>
       <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
       <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.UserDAOTest" />
-      <option name="METHOD_NAME" value="getUserFromName" />
+      <option name="METHOD_NAME" value="getUserNameFromTokenString_Throw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDAOTest.getUserNameFromTokenString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="casus in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DAOs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DAOs" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DAOs.UserDAOTest" />
-      <option name="METHOD_NAME" value="getUserNameFromTokenString" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/nl/han/simon/casus" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="casus" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
-      <item itemvalue="JUnit.TrackDAOTest.deleteFromPlaylist" />
-      <item itemvalue="JUnit.TrackDAOTest.getAllTracksExcept" />
-      <item itemvalue="JUnit.TrackDAOTest.getPlaylistTracks" />
-      <item itemvalue="JUnit.UserDAOTest.getUserFromName" />
-      <item itemvalue="JUnit.UserDAOTest.getUserNameFromTokenString" />
+      <item itemvalue="JUnit.PlaylistDAOTest.getPlaylistTracks" />
+      <item itemvalue="JUnit.Services in casus" />
+      <item itemvalue="JUnit.UserDAOTest.getUserNameFromTokenString_Throw" />
+      <item itemvalue="JUnit.casus in casus" />
+      <item itemvalue="JUnit.java in casus" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserDAOTest.getUserNameFromTokenString" />
-        <item itemvalue="JUnit.UserDAOTest.getUserFromName" />
-        <item itemvalue="JUnit.TrackDAOTest.deleteFromPlaylist" />
-        <item itemvalue="JUnit.TrackDAOTest.getAllTracksExcept" />
-        <item itemvalue="JUnit.TrackDAOTest.getPlaylistTracks" />
+        <item itemvalue="JUnit.java in casus" />
+        <item itemvalue="JUnit.UserDAOTest.getUserNameFromTokenString_Throw" />
+        <item itemvalue="JUnit.casus in casus" />
+        <item itemvalue="JUnit.PlaylistDAOTest.getPlaylistTracks" />
+        <item itemvalue="JUnit.Services in casus" />
       </list>
     </recent_temporary>
   </component>
@@ -326,6 +306,10 @@
       <workItem from="1687608719495" duration="7335000" />
       <workItem from="1687637294546" duration="9667000" />
       <workItem from="1687690096856" duration="9808000" />
+      <workItem from="1687703672526" duration="653000" />
+      <workItem from="1687712446146" duration="7121000" />
+      <workItem from="1687728432227" duration="155000" />
+      <workItem from="1687767732005" duration="4618000" />
     </task>
     <servers />
   </component>
@@ -352,9 +336,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/casus$JBoss_WildFly_25_0_0_Final.ic" NAME="JBoss/WildFly 25.0.0.Final Coverage Results" MODIFIED="1678366936724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/han_spotitube$LoginResourceTest_userCorrectBothFields.ic" NAME="LoginResourceTest.userCorrectBothFields Coverage Results" MODIFIED="1679493902745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$casus_in_casus.ic" NAME="casus in casus Coverage Results" MODIFIED="1687771171728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$TrackDAOTest_getPlaylistTracks.ic" NAME="TrackDAOTest.getPlaylistTracks Coverage Results" MODIFIED="1687697394343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
@@ -362,11 +344,43 @@
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$All_in_casus.ic" NAME="All in casus Coverage Results" MODIFIED="1679568495155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/han_spotitube$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1687703410276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_updatePlaylistNameWithTokenString.ic" NAME="PlaylistResourceTest.updatePlaylistNameWithTokenString Coverage Results" MODIFIED="1679492448857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$Services_in_casus.ic" NAME="Services in casus Coverage Results" MODIFIED="1687769180519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest_toConvertedPlaylists.ic" NAME="PlaylistDAOTest.toConvertedPlaylists Coverage Results" MODIFIED="1687691781880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistServiceTest.ic" NAME="PlaylistServiceTest Coverage Results" MODIFIED="1687720997076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest.ic" NAME="PlaylistResourceTest Coverage Results" MODIFIED="1687769278209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$nl_han_simon_casus_Endpoints_in_casus.ic" NAME="nl.han.simon.casus.Endpoints in casus Coverage Results" MODIFIED="1679490091832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest_getPlaylistTracks.ic" NAME="PlaylistDAOTest.getPlaylistTracks Coverage Results" MODIFIED="1687769683875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/casus$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1679390464154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest.ic" NAME="PlaylistDAOTest Coverage Results" MODIFIED="1687693163830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_addTrackToPlaylistWithTokenString.ic" NAME="PlaylistResourceTest.addTrackToPlaylistWithTokenString Coverage Results" MODIFIED="1679492119067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$LoginResourceTest_userCorrectBothFields.ic" NAME="LoginResourceTest.userCorrectBothFields Coverage Results" MODIFIED="1679493902745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1687772401599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$UserDAOTest_getUserNameFromTokenString_Throw.ic" NAME="UserDAOTest.getUserNameFromTokenString_Throw Coverage Results" MODIFIED="1687772078686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1687772240846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistServiceTest_getAllPlaylists.ic" NAME="PlaylistServiceTest.getAllPlaylists Coverage Results" MODIFIED="1679496099941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Services.*</FILTER>
@@ -381,26 +395,14 @@
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest_getPlaylists.ic" NAME="PlaylistDAOTest.getPlaylists Coverage Results" MODIFIED="1687691763804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest_toConvertedPlaylists.ic" NAME="PlaylistDAOTest.toConvertedPlaylists Coverage Results" MODIFIED="1687691781880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
+    <SUITE FILE_PATH="coverage/han_spotitube$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1687769370699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$TrackDAOTest.ic" NAME="TrackDAOTest Coverage Results" MODIFIED="1687701932570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$nl_han_simon_casus_Endpoints_in_casus.ic" NAME="nl.han.simon.casus.Endpoints in casus Coverage Results" MODIFIED="1679490091832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/casus$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1679390464154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest.ic" NAME="PlaylistDAOTest Coverage Results" MODIFIED="1687693163830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_updatePlaylistNameWithoutTokenString.ic" NAME="PlaylistResourceTest.updatePlaylistNameWithoutTokenString Coverage Results" MODIFIED="1679413436832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_addTrackToPlaylistWithTokenString.ic" NAME="PlaylistResourceTest.addTrackToPlaylistWithTokenString Coverage Results" MODIFIED="1679492119067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
   </component>
