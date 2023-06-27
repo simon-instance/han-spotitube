@@ -116,7 +116,7 @@ class PlaylistDAOTest {
         // Act
         sut.updatePlaylistName(PLAYLIST_ID, PLAYLIST_NAME);
         // Assert
-        Mockito.verify(mockedQueryHelper).executeUpdateQuery(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
+        Mockito.verify(mockedQueryHelper).execute(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyInt());
     }
 
     @Test

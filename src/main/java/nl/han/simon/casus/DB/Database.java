@@ -4,8 +4,6 @@ import nl.han.simon.casus.Exceptions.DBException;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class Database {
@@ -18,18 +16,12 @@ public class Database {
             System.out.println("Failed to load properties file");
         }
 
-        String devMode = props.getProperty("dev");
         try {
-            if("false".equals(devMode)) {
-                String url = props.getProperty("javax.persistence.jdbc.url");
-                String user = props.getProperty("javax.persistence.jdbc.user");
-                String password = props.getProperty("javax.persistence.jdbc.password");
+            String url = props.getProperty("javax.persistence.jdbc.url");
+            String user = props.getProperty("javax.persistence.jdbc.user");
+            String password = props.getProperty("javax.persistence.jdbc.password");
 
-                return DriverManager.getConnection(url, user, password);
-            } else {
-                String url = props.getProperty("url");
-                return DriverManager.getConnection(url);
-            }
+            return DriverManager.getConnection(url, user, password);
         } catch(SQLException e) {
             throw new DBException("Failed to connect to database");
         }

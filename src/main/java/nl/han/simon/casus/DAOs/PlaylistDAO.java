@@ -1,5 +1,6 @@
 package nl.han.simon.casus.DAOs;
 
+import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.Database;
 import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 public class PlaylistDAO {
     private QueryHelper queryHelper;
 
+    @Inject
     public void setQueryHelper(QueryHelper queryHelper) {
         this.queryHelper = queryHelper;
     }
@@ -96,7 +98,7 @@ public class PlaylistDAO {
     }
 
     public void updatePlaylistName(int id, String name) {
-        queryHelper.executeUpdateQuery("""
+        queryHelper.execute("""
             UPDATE [playlist]
             SET [name] = ?
             WHERE [id] = ?

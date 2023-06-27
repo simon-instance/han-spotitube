@@ -1,5 +1,6 @@
 package nl.han.simon.casus.DB;
 
+import nl.han.simon.casus.DTOs.Playlist;
 import nl.han.simon.casus.DTOs.PlaylistDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,27 +40,6 @@ public class QueryHelperTests {
     }
 
     @Test
-    public void executeUpdateQuery_shouldExecuteUpdateQuery() throws SQLException {
-        // Arrange
-        String updateQuery = "UPDATE your_table SET column1 = ? WHERE id = ?";
-        String col1 = "value";
-        int col2 = 1;
-
-        // Act
-        sut.executeUpdateQuery(updateQuery, col1, col2);
-
-        // Assert
-        // Verify that the methods were called with the expected arguments
-        Mockito.verify(mockedRawConnection).prepareStatement(updateQuery);
-        Mockito.verify(mockedStatement).setObject(1, col1);
-        Mockito.verify(mockedStatement).setObject(2, col2);
-        Mockito.verify(mockedStatement).executeUpdate();
-
-        // Verify that the necessary methods were called in the correct order
-        Mockito.inOrder(mockedConnection, mockedRawConnection, mockedStatement);
-    }
-
-    @Test
     public void execute_shouldExecuteQuery() throws SQLException {
         // Arrange
         String selectQuery = "SELECT * FROM your_table WHERE id = ?";
@@ -82,15 +62,13 @@ public class QueryHelperTests {
         String query = "SELECT name FROM playlist WHERE category = ?";
         RowMapper<String> rowMapper = resultSet -> resultSet.getString("name");
 
-        // Create a list of expected data
         List<String> expectedData = Arrays.asList("Song 1", "Song 2", "Song 3");
 
-        // Set up the mocked ResultSet to return the expected data
         Mockito.when(mockedResultSet.next())
-                .thenReturn(true)  // First call returns true to indicate data is available
-                .thenReturn(true)  // Second call returns true
-                .thenReturn(true)  // Third call returns true
-                .thenReturn(false); // Fourth call returns false to indicate end of data
+                .thenReturn(true)
+                .thenReturn(true)
+                .thenReturn(true)
+                .thenReturn(false);
 
         Mockito.when(mockedResultSet.getString("name"))
                 .thenReturn(expectedData.get(0))
@@ -105,5 +83,33 @@ public class QueryHelperTests {
 
         // Assert
         assertEquals(expectedData, actualData);
+    }
+
+    @Test
+    public void executeSelectQuery() {
+        // Arrange
+        QueryHelper sutSpy = Mockito.spy(sut);
+        String selectQuery = "SELECT * FROM playlist";
+
+        List<String> expectedPlaylists = Arrays.asList(
+                "Song 1",
+                "Song 2",
+                "Song 3"
+        );
+
+        RowMapper<PlaylistDTO> rowMapper = Mockito.mock(RowMapper.class);
+
+        Mockito.doReturn(expectedPlaylists)
+                .when(sutSpy)
+                .executePreparedStatement(selectQuery, rowMapper);
+
+        // Act
+        List<PlaylistDTO> result = sutSpy.executeSelectQuery(selectQuery, rowMapper);
+
+        // Assert
+        Mockito.verify(sutSpy)
+                .executePreparedStatement(selectQuery, rowMapper);
+
+        assertEquals(expectedPlaylists, result);
     }
 }

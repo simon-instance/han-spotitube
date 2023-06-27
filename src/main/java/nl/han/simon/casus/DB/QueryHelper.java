@@ -19,49 +19,23 @@ public class QueryHelper {
     }
 
 
-    // Method to execute a select statement and return a ResultSet
     public <T> List<T> executeSelectQuery(String selectQuery, RowMapper<T> rowMapper, Object... bindParams) {
         return executePreparedStatement(selectQuery, rowMapper, bindParams);
     }
 
-    public void executeUpdateQuery(String updateQuery, Object... bindParams) {
-        try {
-            // Get a Connection object from the Database class
-            Connection connection = database.getConnection();
-
-            // Prepare the statement using the Connection object
-            PreparedStatement statement = connection.prepareStatement(updateQuery);
-
-            // Assign bind parameters to statement
-            for (int i = 0; i < bindParams.length; i++) {
-                statement.setObject(i + 1, bindParams[i]);
-            }
-
-            // Execute the query and get the ResultSet
-            statement.executeUpdate();
-        } catch(SQLException e) {
-            throw new DBException("Error executing UPDATE statement");
-        }
-    }
-
-
     public void execute(String selectQuery, Object... bindParams) {
         try {
-            // Get a Connection object from the Database class
             Connection connection = database.getConnection();
 
-            // Prepare the statement using the Connection object
             PreparedStatement statement = connection.prepareStatement(selectQuery);
 
-            // Assign bind parameters to statement
             for (int i = 0; i < bindParams.length; i++) {
                 statement.setObject(i + 1, bindParams[i]);
             }
 
-            // Execute the query and get the ResultSet
             statement.execute();
         } catch(SQLException e) {
-            throw new DBException("Error executing INSERT/DELETE statement");
+            throw new DBException("Error executing INSERT/UPDATE/DELETE statement");
         }
     }
 

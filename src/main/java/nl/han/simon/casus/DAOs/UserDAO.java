@@ -2,12 +2,9 @@ package nl.han.simon.casus.DAOs;
 
 import jakarta.inject.Inject;
 import nl.han.simon.casus.DB.QueryHelper;
-import nl.han.simon.casus.DB.QueryHelper;
 import nl.han.simon.casus.DB.RowMapper;
 import nl.han.simon.casus.DTOs.UserRequestDTO;
-import nl.han.simon.casus.Exceptions.DBException;
 
-import java.sql.SQLException;
 
 public class UserDAO {
     private QueryHelper queryHelper;

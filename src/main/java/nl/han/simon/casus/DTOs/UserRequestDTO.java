@@ -13,6 +13,10 @@ public class UserRequestDTO {
         this.token = token;
     }
 
+    public String getToken() {
+        return token;
+    }
+
     private String user;
     private String token;
 }

@@ -11,6 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fcfe0285-54ec-447c-b06f-07c01b1981c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DAOs/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/QueryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DB/QueryHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/han/simon/casus/DTOs/UserRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/PlaylistDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs/PlaylistDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DB/QueryHelperTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DB/QueryHelperTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +167,23 @@
         </option>
       </method>
     </configuration>
-    <configuration name="QueryHelperTests.executePreparedStatement_withResultSetData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DAOs in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="casus" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/DAOs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Endpoints in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="casus" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Endpoints" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryHelperTests.executeSelectQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
       <extension name="coverage">
         <pattern>
@@ -171,56 +193,16 @@
       </extension>
       <option name="PACKAGE_NAME" value="nl.han.simon.casus.DB" />
       <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DB.QueryHelperTests" />
-      <option name="METHOD_NAME" value="executePreparedStatement_withResultSetData" />
+      <option name="METHOD_NAME" value="executeSelectQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueryHelperTests.executeUpdateQuery_shouldExecuteUpdateQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Services in casus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DB.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DB" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DB.QueryHelperTests" />
-      <option name="METHOD_NAME" value="executeUpdateQuery_shouldExecuteUpdateQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QueryHelperTests.execute_shouldExecuteQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DB.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DB" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DB.QueryHelperTests" />
-      <option name="METHOD_NAME" value="execute_shouldExecuteQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QueryHelperTests.resultSetWithData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="casus" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.han.simon.casus.DB.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.han.simon.casus.DB" />
-      <option name="MAIN_CLASS_NAME" value="nl.han.simon.casus.DB.QueryHelperTests" />
-      <option name="METHOD_NAME" value="resultSetWithData" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/nl/han/simon/casus/Services" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -235,19 +217,19 @@
     </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
-      <item itemvalue="JUnit.QueryHelperTests.executePreparedStatement_withResultSetData" />
-      <item itemvalue="JUnit.QueryHelperTests.executeUpdateQuery_shouldExecuteUpdateQuery" />
-      <item itemvalue="JUnit.QueryHelperTests.execute_shouldExecuteQuery" />
-      <item itemvalue="JUnit.QueryHelperTests.resultSetWithData" />
+      <item itemvalue="JUnit.DAOs in casus" />
+      <item itemvalue="JUnit.Endpoints in casus" />
+      <item itemvalue="JUnit.Services in casus" />
       <item itemvalue="JUnit.casus in casus" />
+      <item itemvalue="JUnit.QueryHelperTests.executeSelectQuery" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.casus in casus" />
-        <item itemvalue="JUnit.QueryHelperTests.executeUpdateQuery_shouldExecuteUpdateQuery" />
-        <item itemvalue="JUnit.QueryHelperTests.execute_shouldExecuteQuery" />
-        <item itemvalue="JUnit.QueryHelperTests.executePreparedStatement_withResultSetData" />
-        <item itemvalue="JUnit.QueryHelperTests.resultSetWithData" />
+        <item itemvalue="JUnit.QueryHelperTests.executeSelectQuery" />
+        <item itemvalue="JUnit.Services in casus" />
+        <item itemvalue="JUnit.Endpoints in casus" />
+        <item itemvalue="JUnit.DAOs in casus" />
       </list>
     </recent_temporary>
   </component>
@@ -342,7 +324,7 @@
     <SUITE FILE_PATH="coverage/han_spotitube$nl_han_simon_casus_in_han_spotitube.ic" NAME="nl.han.simon.casus in han-spotitube Coverage Results" MODIFIED="1687787688689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$casus_in_casus.ic" NAME="casus in casus Coverage Results" MODIFIED="1687802541145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$casus_in_casus.ic" NAME="casus in casus Coverage Results" MODIFIED="1687809269117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$TrackDAOTest_getPlaylistTracks.ic" NAME="TrackDAOTest.getPlaylistTracks Coverage Results" MODIFIED="1687697394343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
@@ -353,28 +335,29 @@
     <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_executePreparedStatement_withResultSetData.ic" NAME="QueryHelperTests.executePreparedStatement_withResultSetData Coverage Results" MODIFIED="1687800510579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_executeSelectQuery.ic" NAME="QueryHelperTests.executeSelectQuery Coverage Results" MODIFIED="1687789639279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_execute_shouldExecuteQuery.ic" NAME="QueryHelperTests.execute_shouldExecuteQuery Coverage Results" MODIFIED="1687801893792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_execute_shouldExecuteQuery.ic" NAME="QueryHelperTests.execute_shouldExecuteQuery Coverage Results" MODIFIED="1687801893792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_executeSelectQuery.ic" NAME="QueryHelperTests.executeSelectQuery Coverage Results" MODIFIED="1687808824004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_updatePlaylistNameWithTokenString.ic" NAME="PlaylistResourceTest.updatePlaylistNameWithTokenString Coverage Results" MODIFIED="1679492448857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$Services_in_casus.ic" NAME="Services in casus Coverage Results" MODIFIED="1687769180519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$Services_in_casus.ic" NAME="Services in casus Coverage Results" MODIFIED="1687807743783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$POJOTests_testGettersSettersDTO.ic" NAME="POJOTests.testGettersSettersDTO Coverage Results" MODIFIED="1687783284046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DTOs.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_resultSetWithData.ic" NAME="QueryHelperTests.resultSetWithData Coverage Results" MODIFIED="1687799544894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests.ic" NAME="QueryHelperTests Coverage Results" MODIFIED="1687802511701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests.ic" NAME="QueryHelperTests Coverage Results" MODIFIED="1687806932646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/han_spotitube$CORSFilterTest_filter.ic" NAME="CORSFilterTest.filter Coverage Results" MODIFIED="1687782418054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$Endpoints_in_casus.ic" NAME="Endpoints in casus Coverage Results" MODIFIED="1687807736018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$QueryHelperTests_executeSelectQuery__1_.ic" NAME="QueryHelperTests.executeSelectQuery (1) Coverage Results" MODIFIED="1687798553140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DB.*</FILTER>
     </SUITE>
@@ -399,6 +382,7 @@
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistDAOTest.ic" NAME="PlaylistDAOTest Coverage Results" MODIFIED="1687693163830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$DAOs_in_casus.ic" NAME="DAOs in casus Coverage Results" MODIFIED="1687807727590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_addTrackToPlaylistWithTokenString.ic" NAME="PlaylistResourceTest.addTrackToPlaylistWithTokenString Coverage Results" MODIFIED="1679492119067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
@@ -434,7 +418,9 @@
     <SUITE FILE_PATH="coverage/han_spotitube$TrackDAOTest.ic" NAME="TrackDAOTest Coverage Results" MODIFIED="1687701932570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.DAOs.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/han_spotitube$DTOs_in_casus.ic" NAME="DTOs in casus Coverage Results" MODIFIED="1687807712717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/casus$java_in_casus.ic" NAME="java in casus Coverage Results" MODIFIED="1679393064759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/han_spotitube$DB_in_casus.ic" NAME="DB in casus Coverage Results" MODIFIED="1687807701619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/han_spotitube$PlaylistResourceTest_updatePlaylistNameWithoutTokenString.ic" NAME="PlaylistResourceTest.updatePlaylistNameWithoutTokenString Coverage Results" MODIFIED="1679413436832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>nl.han.simon.casus.Endpoints.*</FILTER>
     </SUITE>
